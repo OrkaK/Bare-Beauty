@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .checkout-page { max-width: 800px; margin: 4rem auto; padding: 0 5%; }
+    .checkout-form { background: var(--bg-soft); padding: 2rem; border-radius: 12px; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    .form-group input { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 6px; }
+    .form-row { display: flex; gap: 1rem; }
+    .form-row .form-group { flex: 1; }
+    .pay-btn { background: var(--brown-dark); color: white; border: none; padding: 1rem; width: 100%; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.3s ease; margin-top: 1rem; }
+    .pay-btn:hover { background: #333; }
+    .cc-icons { display: flex; gap: 0.5rem; margin-bottom: 1rem; font-size: 1.5rem; color: #555; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="navbar" style="justify-content: center;">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+    </div>
+  </header>
+
+  <section class="checkout-page">
+    <h1 style="margin-bottom: 2rem; text-align: center;">Secure Checkout</h1>
+    
+    <form class="checkout-form" onsubmit="processPayment(event)">
+      <h3>Shipping Address</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" required></div>
+        <div class="form-group"><label>Last Name</label><input type="text" required></div>
+      </div>
+      <div class="form-group"><label>Street Address</label><input type="text" required></div>
+      
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Payment Details</h3>
+      <div class="cc-icons">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-amex"></i>
+        <i class="fa-brands fa-cc-discover"></i>
+      </div>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="0000 0000 0000 0000" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Expiry (MM/YY)</label><input type="text" placeholder="MM/YY" required></div>
+        <div class="form-group"><label>CVC</label><input type="text" placeholder="123" required></div>
+      </div>
+
+      <button type="submit" class="pay-btn">Pay Now</button>
+    </form>
+  </section>
+
+  <script>
+    async function processPayment(e) {
+      e.preventDefault(); 
+      
+      const btn = document.querySelector('.pay-btn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+      btn.disabled = true;
+      
+      const form = e.target;
+      const inputs = form.querySelectorAll('input[type="text"]');
+      const customer = {
+          name: `${inputs[0].value} ${inputs[1].value}`,
+          email: 'guest@barebeauty.com', // fallback
+          address: {
+              line1: inputs[2].value,
+              city: '',
+              postal_code: '',
+              country: 'US'
+          }
+      };
+
+      // Check if logged in to use real email
+      const authUserStr = localStorage.getItem('bareBeautyUser');
+      if (authUserStr) {
+          try {
+              const user = JSON.parse(authUserStr);
+              if (user.email) customer.email = user.email;
+          } catch(err) {}
+      }
+
+      const cartToken = localStorage.getItem('bareBeautyCartToken');
+      
+      if (!cartToken) {
+          alert('Your cart is invalid or empty. Please go back and add items.');
+          btn.innerHTML = 'Pay Now';
+          btn.disabled = false;
+          return;
+      }
+
+      try {
+          const res = await fetch('http://localhost:5001/checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ cartToken, customer })
+          });
+          
+          if (res.ok || res.status === 201) {
+              const orderData = await res.json();
+              // Success! Clear caches.
+              localStorage.removeItem('bareBeautyCartToken');
+              localStorage.setItem('bareBeautyCart', '[]');
+              // Save order number to display on confirmation
+              localStorage.setItem('lastOrder', JSON.stringify({
+                  orderNumber: orderData.orderNumber,
+                  total: orderData.total
+              }));
+              window.location.href = 'order-confirmation.html';
+          } else {
+              const errorData = await res.json();
+              alert('Checkout failed: ' + (errorData.message || 'Unknown error'));
+              btn.innerHTML = 'Pay Now';
+              btn.disabled = false;
+          }
+      } catch (err) {
+          console.error(err);
+          alert('Network securely dropped connection to payment gateway.');
+          btn.innerHTML = 'Pay Now';
+          btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

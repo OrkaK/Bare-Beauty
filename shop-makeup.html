@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makeup | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html" class="active">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header header-makeup">
+    <h1>Makeup</h1>
+    <p>Clean beauty for a flawless, natural look</p>
+  </section>
+
+  <!-- Shop Layout -->
+  <div class="shop-container">
+    
+    <!-- Filters Sidebar -->
+    <aside class="filters-sidebar">
+
+      <div class="filter-header">
+        <div class="filter-header-left">
+          <div class="filter-header-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <h3>Refine</h3>
+            <span class="filter-subtitle">Find your perfect match</span>
+          </div>
+        </div>
+        <button class="clear-filters" id="clearFilters">Clear All</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-tag"></i> Category</div>
+
+        <div class="filter-group-sublabel">Face</div>
+        <div class="filter-chip-grid" style="margin-bottom:10px;">
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="tinted-moisturizer"><span>Tinted Moisturizer</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="concealer"><span>Concealer</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="primer"><span>Primer</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="blush"><span>Blush</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="highlighter"><span>Highlighter</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="makeup-remover"><span>Makeup Remover</span></label>
+        </div>
+
+        <div class="filter-group-sublabel">Lips</div>
+        <div class="filter-chip-grid" style="margin-bottom:10px;">
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="lip-gloss"><span>Lip Gloss</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="lip-plumper"><span>Lip Plumper</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="lip-balm"><span>Lip Balm</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="lip-liner"><span>Lip Liner</span></label>
+        </div>
+
+        <div class="filter-group-sublabel">Eyes</div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="mascara"><span>Mascara</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="eyeliner"><span>Eyeliner</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="eyebrows"><span>Eyebrows</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="eyelashes"><span>Eyelashes</span></label>
+          <label class="filter-chip"><input type="checkbox" name="subcategory" value="eyeshadow"><span>Eyeshadow</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Skin Tone Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-palette"></i> Skin Tone</div>
+        <div class="filter-tone-swatches">
+          <label class="filter-tone-swatch" title="Fair"><input type="checkbox" name="skin-tone" value="fair"><span style="background:#f5d5c8;"></span><small>Fair</small></label>
+          <label class="filter-tone-swatch" title="Light"><input type="checkbox" name="skin-tone" value="light"><span style="background:#e8c4a8;"></span><small>Light</small></label>
+          <label class="filter-tone-swatch" title="Medium"><input type="checkbox" name="skin-tone" value="medium"><span style="background:#c9a077;"></span><small>Medium</small></label>
+          <label class="filter-tone-swatch" title="Tan"><input type="checkbox" name="skin-tone" value="tan"><span style="background:#a67c52;"></span><small>Tan</small></label>
+          <label class="filter-tone-swatch" title="Deep"><input type="checkbox" name="skin-tone" value="deep"><span style="background:#6b4423;"></span><small>Deep</small></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Finish Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Finish</div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip"><input type="checkbox" name="finish" value="matte"><span>Matte</span></label>
+          <label class="filter-chip"><input type="checkbox" name="finish" value="dewy"><span>Dewy</span></label>
+          <label class="filter-chip"><input type="checkbox" name="finish" value="satin"><span>Satin</span></label>
+          <label class="filter-chip"><input type="checkbox" name="finish" value="shimmer"><span>Shimmer</span></label>
+          <label class="filter-chip"><input type="checkbox" name="finish" value="natural"><span>Natural</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-dollar-sign"></i> Price Range</div>
+        <div class="filter-price-pills">
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="under-15"><span>Under $15</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="15-25"><span>$15 – $25</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="25-40"><span>$25 – $40</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="over-40"><span>$40+</span></label>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="products-section">
+      <!-- Sort & Results Bar -->
+      <div class="results-bar">
+        <span class="results-count">30 Products</span>
+        <div class="sort-dropdown">
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="product-grid-shop">
+        
+        <!-- ===== FEATURED PRODUCTS ===== -->
+        
+        <!-- Product Card - Tinted Moisturizer -->
+        <div class="product-card-shop" data-category="face" data-subcategory="tinted-moisturizer" data-price="34">
+          <a href="product-detail.html?id=tinted-moisturizer-1">
+            <div class="product-image">
+              <img src="img/skintint.jpg" alt="Skin Tint Glow">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Tinted Moisturizer</span>
+            <h4 class="product-name">Skin Tint Glow SPF 30</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(312)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Blush -->
+        <div class="product-card-shop" data-category="face" data-subcategory="blush" data-price="28">
+          <a href="product-detail.html?id=blush-1">
+            <div class="product-image">
+              <img src="img/cloud-paint-blush.jpg" alt="Cloud Paint Blush">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Blush</span>
+            <h4 class="product-name">Cloud Paint Liquid Blush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(428)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Lip Gloss -->
+        <div class="product-card-shop" data-category="lips" data-subcategory="lip-gloss" data-price="18">
+          <a href="product-detail.html?id=lip-gloss-1">
+            <div class="product-image">
+              <img src="img/Makeup/Lip Products/Lip Gloss Rosy Sparkle.png" alt="Crystal Clear Lip Gloss">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Gloss</span>
+            <h4 class="product-name">Crystal Clear Lip Gloss</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(567)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Lip Balm/Treatment -->
+        <div class="product-card-shop" data-category="lips" data-subcategory="lip-balm" data-price="22">
+          <a href="product-detail.html?id=lip-oil-1">
+            <div class="product-image">
+              <img src="img/Makeup/Lip Products/Nourishing Lip Oil Rose Nude.png" alt="Nourishing Lip Oil">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Balms & Treatments</span>
+            <h4 class="product-name">Nourishing Lip Oil</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Mascara -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="mascara" data-price="26">
+          <a href="product-detail.html?id=mascara-1">
+            <div class="product-image">
+              <img src="img/Makeup/Eye Products/Lash Lift Volumizing Mascara Magenta.png" alt="Volumizing Mascara">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Mascara</span>
+            <h4 class="product-name">Lash Lift Volumizing Mascara</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(623)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$26.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Eyeshadow Palette -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyeshadow" data-price="48">
+          <a href="product-detail.html?id=eyeshadow-palette-1">
+            <div class="product-image">
+              <img src="img/blog-2.jpg" alt="Nude Neutrals Palette">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyeshadow Palette</span>
+            <h4 class="product-name">Nude Neutrals 12-Pan Palette</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(412)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$48.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- ===== OTHER PRODUCTS ===== -->
+        
+        <!-- Product Card - Concealer -->
+        <div class="product-card-shop" data-category="face" data-subcategory="concealer" data-price="26">
+          <a href="product-detail.html?id=concealer-1">
+            <div class="product-image">
+              <img src="img/concealer.jpg" alt="Radiant Creamy Concealer">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Concealer</span>
+            <h4 class="product-name">Radiant Creamy Concealer</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$26.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Primer -->
+        <div class="product-card-shop" data-category="face" data-subcategory="primer" data-price="38">
+          <a href="product-detail.html?id=primer-1">
+            <div class="product-image">
+              <img src="img/primer.jpg" alt="Pore Perfecting Primer">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Primer</span>
+            <h4 class="product-name">Pore Perfecting Primer</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Highlighter -->
+        <div class="product-card-shop" data-category="face" data-subcategory="highlighter" data-price="32">
+          <a href="product-detail.html?id=highlighter-1">
+            <div class="product-image">
+              <img src="img/liquid-glow-highlighter.jpg" alt="Liquid Glow Highlighter">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Highlighter</span>
+            <h4 class="product-name">Liquid Glow Highlighter</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$32.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Makeup Remover -->
+        <div class="product-card-shop" data-category="face" data-subcategory="makeup-remover" data-price="24">
+          <a href="product-detail.html?id=makeup-remover-1">
+            <div class="product-image">
+              <img src="img/cleansing-balm.jpg" alt="Cleansing Balm">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Remover</span>
+            <h4 class="product-name">Melting Cleansing Balm</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(287)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Lip Plumper -->
+        <div class="product-card-shop" data-category="lips" data-subcategory="lip-plumper" data-price="24">
+          <a href="product-detail.html?id=lip-plumper-1">
+            <div class="product-image">
+              <img src="img/Makeup/Lip Products/Peptide Plumping Gloss Mauve Rose.png" alt="Peptide Lip Plumper">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Plumper</span>
+            <h4 class="product-name">Peptide Plumping Gloss</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(198)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Lip Liner -->
+        <div class="product-card-shop" data-category="lips" data-subcategory="lip-liner" data-price="16">
+          <a href="product-detail.html?id=lip-liner-1">
+            <div class="product-image">
+              <img src="img/Makeup/Lip Products/Precision Lip Liner Rosy Mauve.png" alt="Precision Lip Liner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Liner</span>
+            <h4 class="product-name">Precision Lip Liner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(145)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$16.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Eyeliner -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyeliner" data-price="22">
+          <a href="product-detail.html?id=eyeliner-1">
+            <div class="product-image">
+              <img src="img/Makeup/Eye Products/Precision Felt Tip Liner Blue.png" alt="Felt Tip Eyeliner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyeliner</span>
+            <h4 class="product-name">Precision Felt Tip Liner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(278)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Eyebrows -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyebrows" data-price="24">
+          <a href="product-detail.html?id=brow-pencil-1">
+            <div class="product-image">
+              <img src="img/Makeup/Eye Products/Brow Sculpting Pencil Brown.png" alt="Brow Sculpting Pencil">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyebrows</span>
+            <h4 class="product-name">Brow Sculpting Pencil</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Eyelashes -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyelashes" data-price="18">
+          <a href="product-detail.html?id=lashes-1">
+            <div class="product-image">
+              <img src="img/blog-1.jpg" alt="Natural Faux Lashes">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyelashes</span>
+            <h4 class="product-name">Natural Wispy Faux Lashes</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Eyeshadow Palette 2 - Sale -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyeshadow" data-price="42">
+          <a href="product-detail.html?id=eyeshadow-palette-2">
+            <div class="product-image">
+              <img src="img/blog-3.jpg" alt="Rose Gold Palette">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyeshadow Palette</span>
+            <h4 class="product-name">Rose Gold Dreams Palette</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(298)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$52.00</span>
+              <span class="current-price sale">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card - Brow Gel -->
+        <div class="product-card-shop" data-category="eyes" data-subcategory="eyebrows" data-price="20">
+          <a href="product-detail.html?id=brow-gel-1">
+            <div class="product-image">
+              <img src="img/about-img.jpg" alt="Tinted Brow Gel">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eyebrows</span>
+            <h4 class="product-name">Tinted Brow Gel</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$20.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn prev-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn next-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

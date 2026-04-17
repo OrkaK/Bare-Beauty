@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haircare Tracker | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools &amp; Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill active"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="advisor-hero tracker-hero-hair">
+    <div class="advisor-hero-glow"></div>
+    <div class="advisor-hero-inner">
+      <div class="advisor-hero-badge">
+        <span class="advisor-pulse-dot"></span> Hair Ritual
+      </div>
+      <h1>Haircare<br>Tracker</h1>
+      <p>Treat your hair. Watch it flourish.</p>
+      <div class="advisor-hero-features">
+        <div class="advisor-feature-chip"><i class="fa-solid fa-spa"></i> Treatment Log</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-camera"></i> Before &amp; After</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-droplet"></i> Hair Health</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-clock-rotate-left"></i> History</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracker Container -->
+  <div class="tracker-advisor-wrap">
+
+    <!-- Tabs -->
+    <div class="tracker-tabs">
+      <button class="tab-btn active" data-tab="treatment">
+        <i class="fa-solid fa-spa"></i> <span>Treatment Log</span>
+      </button>
+      <button class="tab-btn" data-tab="history">
+        <i class="fa-solid fa-clock-rotate-left"></i> <span>History</span>
+      </button>
+    </div>
+
+    <!-- ===== TREATMENT TAB ===== -->
+    <div class="tracker-tab-content active" id="treatment-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-spa"></i> Treatment</div>
+          <h2>Hair Treatment Log</h2>
+          <p>Document your haircare ritual</p>
+        </div>
+
+        <div class="analysis-options">
+
+          <!-- Camera -->
+          <div class="camera-section">
+            <div class="camera-container" id="hcCameraContainer">
+              <video id="hcCameraFeed" autoplay playsinline></video>
+              <canvas id="hcCameraCanvas" style="display:none;"></canvas>
+              <div class="camera-placeholder" id="hcCameraPlaceholder">
+                <i class="fa-solid fa-camera"></i>
+                <p>Camera preview will appear here</p>
+              </div>
+            </div>
+            <div class="camera-controls">
+              <button type="button" class="advisor-btn primary" id="hcStartBtn">
+                <i class="fa-solid fa-camera"></i> Start Camera
+              </button>
+              <button type="button" class="advisor-btn secondary" id="hcCaptureBtn" style="display:none;">
+                <i class="fa-solid fa-circle"></i> Capture Photo
+              </button>
+              <button type="button" class="advisor-btn outline" id="hcRetakeBtn" style="display:none;">
+                <i class="fa-solid fa-redo"></i> Retake
+              </button>
+            </div>
+            <div class="privacy-notice">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Your photo is analyzed locally and never stored or transmitted</span>
+            </div>
+          </div>
+
+          <div class="divider-or"><span>OR</span></div>
+
+          <!-- Form -->
+          <div class="manual-section">
+            <h3>Tell Us About Your Hair</h3>
+            <form id="treatment-form" class="tracker-form">
+
+              <div class="input-group">
+                <label>Date</label>
+                <input type="date" id="treatment-date" name="date" required class="tracker-input">
+              </div>
+
+              <div class="input-group">
+                <label>Hair Type</label>
+                <div class="option-buttons" id="hairTypeOptions">
+                  <button type="button" class="option-btn" data-value="straight"><i class="fa-solid fa-minus"></i> Straight</button>
+                  <button type="button" class="option-btn" data-value="wavy"><i class="fa-solid fa-wave-square"></i> Wavy</button>
+                  <button type="button" class="option-btn" data-value="curly"><i class="fa-solid fa-rotate"></i> Curly</button>
+                  <button type="button" class="option-btn" data-value="coily"><i class="fa-solid fa-circle-notch"></i> Coily</button>
+                </div>
+                <input type="hidden" id="hair-type" name="hairType">
+              </div>
+
+              <div class="input-group">
+                <label>Treatment Focus</label>
+                <div class="option-buttons" id="treatmentFocusOptions">
+                  <button type="button" class="option-btn" data-value="wash-day"><i class="fa-solid fa-soap"></i> Wash Day</button>
+                  <button type="button" class="option-btn" data-value="deep-condition"><i class="fa-solid fa-jar"></i> Deep Condition</button>
+                  <button type="button" class="option-btn" data-value="scalp-care"><i class="fa-solid fa-hand-sparkles"></i> Scalp Care</button>
+                  <button type="button" class="option-btn" data-value="styling"><i class="fa-solid fa-wand-magic-sparkles"></i> Styling</button>
+                </div>
+                <input type="hidden" id="treatment-focus" name="treatmentFocus">
+              </div>
+
+              <div class="input-group">
+                <label>Hair Concerns (Select All That Apply)</label>
+                <div class="checkbox-group tracker-concerns-grid">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="dryness"> <i class="fa-solid fa-droplet-slash"></i> Dryness
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="frizz"> <i class="fa-solid fa-wind"></i> Frizz
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="breakage"> <i class="fa-solid fa-scissors"></i> Breakage
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="oily-scalp"> <i class="fa-solid fa-droplet"></i> Oily Scalp
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="hair-loss"> <i class="fa-solid fa-circle-minus"></i> Hair Loss
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="split-ends"> <i class="fa-solid fa-code-fork"></i> Split Ends
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="dullness"> <i class="fa-solid fa-eye-slash"></i> Dullness
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="hairConcerns" value="dandruff"> <i class="fa-solid fa-snowflake"></i> Dandruff
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Products Used</label>
+                <div class="product-select-grid">
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Hydrating Honey Shampoo">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Deep%20Moisture%20Shampoo.png" alt="Shampoo">
+                      <span>Deep Moisture Shampoo</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Clarifying Tea Tree Shampoo">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Clarifying%20%20%26%20Hydrating%20Scalp%20Shampoo.png" alt="Shampoo">
+                      <span>Clarifying Scalp Shampoo</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Deep Moisture Conditioner">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Deep%20Moisture%20Conditioner.png" alt="Conditioner">
+                      <span>Deep Moisture Conditioner</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Color Protect Conditioner">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Color%20Protect%20Conditioner.png" alt="Conditioner">
+                      <span>Color Protect Conditioner</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="10-in-1 Leave-In Treatment">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/10-in-1%20Leave-In%20Treatment.png" alt="Leave-In">
+                      <span>10-in-1 Leave-In</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Curl Defining Cream">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Curl%20Defining%20Cream.png" alt="Curl Cream">
+                      <span>Curl Defining Cream</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Overnight Repair Hair Mask">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Overnight%20Repair%20Hair%20Mask.png" alt="Hair Mask">
+                      <span>Overnight Repair Mask</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Protein Bond Repair Mask">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Protein%20Bond%20Repair%20Mask.png" alt="Hair Mask">
+                      <span>Protein Bond Mask</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Moroccan Argan Hair Oil">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Moroccan%20Argon%20Hair%20Oil.png" alt="Hair Oil">
+                      <span>Moroccan Argan Oil</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Biotin Growth Serum">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Biotin%20Growth%20Serum.png" alt="Hair Serum">
+                      <span>Biotin Growth Serum</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Frizz Control Silk Serum">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Frizz%20Control%20Silk%20Serum.png" alt="Hair Serum">
+                      <span>Frizz Control Serum</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Invisible Dry Shampoo">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Freshen%20Up%20Invisible%20Dry%20Shampoo.png" alt="Dry Shampoo">
+                      <span>Invisible Dry Shampoo</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Volumizing Dry Shampoo Foam">
+                    <span class="checkbox-label">
+                      <img src="img/Hair/Style%20%2B%20Treat%20Dry%20Shampoo%20Puff.png" alt="Dry Shampoo">
+                      <span>Dry Shampoo Puff</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Notes</label>
+                <textarea id="treatment-notes" name="notes" rows="3" placeholder="How does your hair feel after the treatment?"></textarea>
+              </div>
+
+              <button type="submit" class="advisor-btn primary full-width">
+                <i class="fa-solid fa-check"></i> Save Treatment Log
+              </button>
+            </form>
+          </div>
+        </div><!-- end analysis-options -->
+      </div>
+    </div>
+
+    <!-- ===== HISTORY TAB ===== -->
+    <div class="tracker-tab-content" id="history-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-clock-rotate-left"></i> History</div>
+          <h2>Haircare History</h2>
+          <p>Your haircare journey so far</p>
+        </div>
+        <div class="history-filters">
+          <button class="advisor-btn outline" id="clear-history">
+            <i class="fa-solid fa-trash"></i> Clear All History
+          </button>
+        </div>
+        <div id="history-entries" class="history-entries">
+          <div class="empty-state">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <p>No entries yet. Start tracking your haircare treatments!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-message" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span>Entry saved successfully!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools &amp; Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Trackers</h4>
+        <a href="tracker-skincare.html">Skincare Tracker</a>
+        <a href="tracker-haircare.html">Haircare Tracker</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Option button toggle
+    document.querySelectorAll('.option-buttons').forEach(function(group) {
+      group.querySelectorAll('.option-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          group.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          var hidden = group.parentElement.querySelector('input[type="hidden"]');
+          if (hidden) hidden.value = btn.getAttribute('data-value');
+        });
+      });
+    });
+
+    // Tracker camera
+    function initTrackerCamera(startBtn, captureBtn, retakeBtn, videoEl, canvasEl, placeholderEl) {
+      var stream = null;
+      startBtn.addEventListener('click', function() {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } }).then(function(s) {
+          stream = s;
+          videoEl.srcObject = s;
+          placeholderEl.style.display = 'none';
+          startBtn.style.display = 'none';
+          captureBtn.style.display = 'inline-flex';
+        }).catch(function() {
+          alert('Camera access denied or unavailable.');
+        });
+      });
+      captureBtn.addEventListener('click', function() {
+        canvasEl.width = videoEl.videoWidth;
+        canvasEl.height = videoEl.videoHeight;
+        canvasEl.getContext('2d').drawImage(videoEl, 0, 0);
+        canvasEl.style.display = 'block';
+        videoEl.style.display = 'none';
+        if (stream) stream.getTracks().forEach(function(t) { t.stop(); });
+        captureBtn.style.display = 'none';
+        retakeBtn.style.display = 'inline-flex';
+      });
+      retakeBtn.addEventListener('click', function() {
+        canvasEl.style.display = 'none';
+        videoEl.style.display = 'block';
+        retakeBtn.style.display = 'none';
+        startBtn.style.display = 'inline-flex';
+        placeholderEl.style.display = 'flex';
+      });
+    }
+
+    initTrackerCamera(
+      document.getElementById('hcStartBtn'),
+      document.getElementById('hcCaptureBtn'),
+      document.getElementById('hcRetakeBtn'),
+      document.getElementById('hcCameraFeed'),
+      document.getElementById('hcCameraCanvas'),
+      document.getElementById('hcCameraPlaceholder')
+    );
+  </script>
+</body>
+</html>

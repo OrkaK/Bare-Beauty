@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html" class="active">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header header-hair">
+    <h1>Hair</h1>
+    <p>Nourish, style, and transform your hair with clean formulas</p>
+  </section>
+
+  <!-- Shop Layout -->
+  <div class="shop-container">
+    
+    <!-- Filters Sidebar -->
+    <aside class="filters-sidebar">
+
+      <!-- Header -->
+      <div class="filter-header">
+        <div class="filter-header-left">
+          <div class="filter-header-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <h3>Refine</h3>
+            <span class="filter-subtitle">Find your perfect match</span>
+          </div>
+        </div>
+        <button class="clear-filters" id="clearFilters">Clear All</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label">
+          <i class="fa-solid fa-tag"></i> Category
+        </div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="shampoo">
+            <span><i class="fa-solid fa-pump-soap"></i> Shampoo</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="conditioner">
+            <span><i class="fa-solid fa-droplet"></i> Conditioner</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="leave-in">
+            <span><i class="fa-solid fa-spray-can"></i> Leave-In</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="hair-mask">
+            <span><i class="fa-solid fa-jar"></i> Hair Mask</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="hair-oil">
+            <span><i class="fa-solid fa-bottle-droplet"></i> Hair Oil</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="hair-serum">
+            <span><i class="fa-solid fa-flask"></i> Serum</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="dry-shampoo">
+            <span><i class="fa-solid fa-wind"></i> Dry Shampoo</span>
+          </label>
+          <label class="filter-chip">
+            <input type="checkbox" name="category" value="hair-travel-kit">
+            <span><i class="fa-solid fa-suitcase"></i> Travel Kit</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Hair Type Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label">
+          <i class="fa-solid fa-person"></i> Hair Type
+        </div>
+        <div class="filter-type-cards">
+          <label class="filter-type-card">
+            <input type="checkbox" name="hair-type" value="straight">
+            <span class="type-icon">〜</span>
+            <span class="type-name">Straight</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="hair-type" value="wavy">
+            <span class="type-icon">〰</span>
+            <span class="type-name">Wavy</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="hair-type" value="curly">
+            <span class="type-icon">🌀</span>
+            <span class="type-name">Curly</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="hair-type" value="coily">
+            <span class="type-icon">✿</span>
+            <span class="type-name">Coily</span>
+          </label>
+          <label class="filter-type-card filter-type-card-wide">
+            <input type="checkbox" name="hair-type" value="all">
+            <span class="type-icon">✦</span>
+            <span class="type-name">All Types</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label">
+          <i class="fa-solid fa-dollar-sign"></i> Price Range
+        </div>
+        <div class="filter-price-pills">
+          <label class="filter-price-pill">
+            <input type="checkbox" name="price" value="under-25">
+            <span>Under $25</span>
+          </label>
+          <label class="filter-price-pill">
+            <input type="checkbox" name="price" value="25-50">
+            <span>$25 – $50</span>
+          </label>
+          <label class="filter-price-pill">
+            <input type="checkbox" name="price" value="50-100">
+            <span>$50 – $100</span>
+          </label>
+          <label class="filter-price-pill">
+            <input type="checkbox" name="price" value="over-100">
+            <span>$100+</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Concern Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label">
+          <i class="fa-solid fa-heart"></i> Hair Concern
+        </div>
+        <div class="filter-concern-list">
+          <label class="filter-concern-item">
+            <input type="checkbox" name="concern" value="dryness">
+            <div class="concern-dot" style="background:#c9a77c;"></div>
+            <span>Dryness</span>
+            <i class="fa-solid fa-check concern-check"></i>
+          </label>
+          <label class="filter-concern-item">
+            <input type="checkbox" name="concern" value="frizz">
+            <div class="concern-dot" style="background:#a07850;"></div>
+            <span>Frizz Control</span>
+            <i class="fa-solid fa-check concern-check"></i>
+          </label>
+          <label class="filter-concern-item">
+            <input type="checkbox" name="concern" value="damage">
+            <div class="concern-dot" style="background:#8b6345;"></div>
+            <span>Damage Repair</span>
+            <i class="fa-solid fa-check concern-check"></i>
+          </label>
+          <label class="filter-concern-item">
+            <input type="checkbox" name="concern" value="thinning">
+            <div class="concern-dot" style="background:#7a5538;"></div>
+            <span>Thinning & Growth</span>
+            <i class="fa-solid fa-check concern-check"></i>
+          </label>
+          <label class="filter-concern-item">
+            <input type="checkbox" name="concern" value="color">
+            <div class="concern-dot" style="background:#6b4423;"></div>
+            <span>Color Protection</span>
+            <i class="fa-solid fa-check concern-check"></i>
+          </label>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="products-section">
+      <!-- Sort & Results Bar -->
+      <div class="results-bar">
+        <span class="results-count">29 Products</span>
+        <div class="sort-dropdown">
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="product-grid-shop">
+
+        <!-- SHAMPOO -->
+        
+        <!-- Shampoo 1 -->
+        <div class="product-card-shop" data-category="shampoo" data-price="28" data-hair-type="all">
+          <a href="product-detail.html?id=shampoo-1">
+            <div class="product-image">
+              <img src="img/Hair/Deep%20Moisture%20Shampoo.png" alt="Deep Moisture Shampoo">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Shampoo</span>
+            <h4 class="product-name">Deep Moisture Shampoo</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Shampoo 2 -->
+        <div class="product-card-shop" data-category="shampoo" data-price="26" data-hair-type="all">
+          <a href="product-detail.html?id=shampoo-2">
+            <div class="product-image">
+              <img src="img/Hair/Clarifying%20%20%26%20Hydrating%20Scalp%20Shampoo.png" alt="Clarifying & Hydrating Scalp Shampoo">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Shampoo</span>
+            <h4 class="product-name">Clarifying & Hydrating Scalp Shampoo</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(198)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$26.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Shampoo 3 -->
+        <div class="product-card-shop" data-category="shampoo" data-price="30" data-hair-type="all">
+          <a href="product-detail.html?id=shampoo-3">
+            <div class="product-image">
+              <img src="img/Hair/Color%20Protect%20Shampoo.png" alt="Color Protect Shampoo">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Shampoo</span>
+            <h4 class="product-name">Color Protect Shampoo</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$30.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- CONDITIONER -->
+
+        <!-- Conditioner 1 -->
+        <div class="product-card-shop" data-category="conditioner" data-price="30" data-hair-type="all">
+          <a href="product-detail.html?id=conditioner-1">
+            <div class="product-image">
+              <img src="img/Hair/Deep%20Moisture%20Conditioner.png" alt="Deep Moisture Conditioner">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Conditioner</span>
+            <h4 class="product-name">Deep Moisture Conditioner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(287)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$30.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Conditioner 2 -->
+        <div class="product-card-shop" data-category="conditioner" data-price="28" data-hair-type="all">
+          <a href="product-detail.html?id=conditioner-2">
+            <div class="product-image">
+              <img src="img/Hair/Clarifying%20%26%20Hydrating%20Scalp%20conditioner%20.png" alt="Clarifying & Hydrating Scalp Conditioner">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Conditioner</span>
+            <h4 class="product-name">Clarifying & Hydrating Scalp Conditioner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Conditioner 3 -->
+        <div class="product-card-shop" data-category="conditioner" data-price="32" data-hair-type="all">
+          <a href="product-detail.html?id=conditioner-3">
+            <div class="product-image">
+              <img src="img/Hair/Color%20Protect%20Conditioner.png" alt="Color Protect Conditioner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Conditioner</span>
+            <h4 class="product-name">Color Protect Conditioner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$32.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- LEAVE-IN TREATMENT -->
+
+        <!-- Leave-In 1 -->
+        <div class="product-card-shop" data-category="leave-in" data-price="26" data-hair-type="all">
+          <a href="product-detail.html?id=leave-in-1">
+            <div class="product-image">
+              <img src="img/Hair/10-in-1%20Leave-In%20Treatment.png" alt="10-in-1 Leave-In Treatment">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Leave-In Treatment</span>
+            <h4 class="product-name">10-in-1 Leave-In Treatment</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(423)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$26.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Leave-In 2 -->
+        <div class="product-card-shop" data-category="leave-in" data-price="24" data-hair-type="curly">
+          <a href="product-detail.html?id=leave-in-2">
+            <div class="product-image">
+              <img src="img/Hair/Curl%20Defining%20Cream.png" alt="Curl Defining Cream">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Leave-In Treatment</span>
+            <h4 class="product-name">Curl Defining Cream</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(267)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Leave-In 3 -->
+        <div class="product-card-shop" data-category="leave-in" data-price="22" data-hair-type="all">
+          <a href="product-detail.html?id=leave-in-3">
+            <div class="product-image">
+              <img src="img/Hair/Leave-In%20Conditioner.png" alt="Leave-In Conditioner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Leave-In Treatment</span>
+            <h4 class="product-name">Leave-In Conditioner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(198)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- HAIR MASK -->
+
+        <!-- Hair Mask 1 -->
+        <div class="product-card-shop" data-category="hair-mask" data-price="36" data-hair-type="dry">
+          <a href="product-detail.html?id=hair-mask-1">
+            <div class="product-image">
+              <img src="img/Hair/Overnight%20Repair%20Hair%20Mask.png" alt="Overnight Repair Hair Mask">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Mask</span>
+            <h4 class="product-name">Overnight Repair Hair Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(389)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$36.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Mask 2 -->
+        <div class="product-card-shop" data-category="hair-mask" data-price="42" data-hair-type="all">
+          <a href="product-detail.html?id=hair-mask-2">
+            <div class="product-image">
+              <img src="img/Hair/Protein%20Bond%20Repair%20Mask.png" alt="Protein Bond Repair Mask">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Mask</span>
+            <h4 class="product-name">Protein Bond Repair Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(201)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Mask 3 -->
+        <div class="product-card-shop" data-category="hair-mask" data-price="34" data-hair-type="all">
+          <a href="product-detail.html?id=hair-mask-3">
+            <div class="product-image">
+              <img src="img/Hair/Soul%20food%20Nourishing%20Mask.png" alt="Soulfood Nourishing Mask">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Mask</span>
+            <h4 class="product-name">Soulfood Nourishing Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(312)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Mask 4 -->
+        <div class="product-card-shop" data-category="hair-mask" data-price="38" data-hair-type="all">
+          <a href="product-detail.html?id=hair-mask-4">
+            <div class="product-image">
+              <img src="img/Hair/Therapy%20Session%20Deep%20Conditioning%20Hair%20Mask.png" alt="Therapy Session Deep Conditioning Hair Mask">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Mask</span>
+            <h4 class="product-name">Therapy Session Deep Conditioning Hair Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(178)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- HAIR OIL -->
+
+        <!-- Hair Oil 1 -->
+        <div class="product-card-shop" data-category="hair-oil" data-price="34" data-hair-type="all">
+          <a href="product-detail.html?id=hair-oil-1">
+            <div class="product-image">
+              <img src="img/Hair/Moroccan%20Argon%20Hair%20Oil.png" alt="Moroccan Argan Hair Oil">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Oil</span>
+            <h4 class="product-name">Moroccan Argan Hair Oil</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(512)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Oil 2 -->
+        <div class="product-card-shop" data-category="hair-oil" data-price="28" data-hair-type="all">
+          <a href="product-detail.html?id=hair-oil-2">
+            <div class="product-image">
+              <img src="img/Hair/Hair%20Oil%20for%20Lightweight%20Shine%20%2B%20Hydration.png" alt="Hair Oil for Lightweight Shine + Hydration">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Oil</span>
+            <h4 class="product-name">Hair Oil for Lightweight Shine + Hydration</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Oil 3 -->
+        <div class="product-card-shop" data-category="hair-oil" data-price="32" data-hair-type="dry">
+          <a href="product-detail.html?id=hair-oil-3">
+            <div class="product-image">
+              <img src="img/Hair/Nourishing%20Hair%20Oil%20.png" alt="Nourishing Hair Oil">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Oil</span>
+            <h4 class="product-name">Nourishing Hair Oil</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(367)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$32.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Oil 4 -->
+        <div class="product-card-shop" data-category="hair-oil" data-price="36" data-hair-type="all">
+          <a href="product-detail.html?id=hair-oil-4">
+            <div class="product-image">
+              <img src="img/Hair/REPAIR%20Hair%20oil%20.png" alt="REPAIR Hair Oil">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Oil</span>
+            <h4 class="product-name">REPAIR Hair Oil</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(145)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$36.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- HAIR SERUM -->
+
+        <!-- Hair Serum 1 -->
+        <div class="product-card-shop" data-category="hair-serum" data-price="38" data-hair-type="all">
+          <a href="product-detail.html?id=hair-serum-1">
+            <div class="product-image">
+              <img src="img/Hair/Biotin%20Growth%20Serum.png" alt="Biotin Growth Serum">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Serum</span>
+            <h4 class="product-name">Biotin Growth Serum</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Serum 2 -->
+        <div class="product-card-shop" data-category="hair-serum" data-price="28" data-hair-type="all">
+          <a href="product-detail.html?id=hair-serum-2">
+            <div class="product-image">
+              <img src="img/Hair/Frizz%20Control%20Silk%20Serum.png" alt="Frizz Control Silk Serum">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Serum</span>
+            <h4 class="product-name">Frizz Control Silk Serum</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(178)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Serum 3 -->
+        <div class="product-card-shop" data-category="hair-serum" data-price="32" data-hair-type="all">
+          <a href="product-detail.html?id=hair-serum-3">
+            <div class="product-image">
+              <img src="img/Hair/Restoring%20Hair%20%26%20Edge%20Drops.png" alt="Restoring Hair & Edge Drops">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Serum</span>
+            <h4 class="product-name">Restoring Hair & Edge Drops</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$32.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Serum 4 -->
+        <div class="product-card-shop" data-category="hair-serum" data-price="34" data-hair-type="all">
+          <a href="product-detail.html?id=hair-serum-4">
+            <div class="product-image">
+              <img src="img/Hair/Lightweight%20Scalp%20Serum%20for%20Thinning%20Hair%20.jpg" alt="Lightweight Scalp Serum for Thinning Hair">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Serum</span>
+            <h4 class="product-name">Lightweight Scalp Serum for Thinning Hair</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(98)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- DRY SHAMPOO -->
+
+        <!-- Dry Shampoo 1 -->
+        <div class="product-card-shop" data-category="dry-shampoo" data-price="18" data-hair-type="all">
+          <a href="product-detail.html?id=dry-shampoo-1">
+            <div class="product-image">
+              <img src="img/Hair/Freshen%20Up%20Invisible%20Dry%20Shampoo.png" alt="Freshen Up Invisible Dry Shampoo">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Dry Shampoo</span>
+            <h4 class="product-name">Freshen Up Invisible Dry Shampoo</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(567)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Dry Shampoo 2 -->
+        <div class="product-card-shop" data-category="dry-shampoo" data-price="20" data-hair-type="all">
+          <a href="product-detail.html?id=dry-shampoo-2">
+            <div class="product-image">
+              <img src="img/Hair/Style%20%2B%20Treat%20Dry%20Shampoo%20Puff.png" alt="Style + Treat Dry Shampoo Puff">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Dry Shampoo</span>
+            <h4 class="product-name">Style + Treat Dry Shampoo Puff</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$20.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Dry Shampoo 3 -->
+        <div class="product-card-shop" data-category="dry-shampoo" data-price="16" data-hair-type="all">
+          <a href="product-detail.html?id=dry-shampoo-3">
+            <div class="product-image">
+              <img src="img/Hair/Dry%20Shampoo%20Powder%20for%20Oil%20Control%20%2B%20Volume.png" alt="Dry Shampoo Powder for Oil Control + Volume">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Dry Shampoo</span>
+            <h4 class="product-name">Dry Shampoo Powder for Oil Control + Volume</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(145)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$16.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Dry Shampoo 4 -->
+        <div class="product-card-shop" data-category="dry-shampoo" data-price="22" data-hair-type="all">
+          <a href="product-detail.html?id=dry-shampoo-4">
+            <div class="product-image">
+              <img src="img/Hair/Style%20%2B%20Treat%20Dry%20Shampoo%20Puff.png" alt="Detox Thickening Dry Shampoo for Thinning Hair">
+              <span class="badge badge-featured">Featured <button class="quick-view-btn"></span>
+             Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Dry Shampoo</span>
+            <h4 class="product-name">Detox Thickening Dry Shampoo for Thinning Hair</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- HAIR TRAVEL KIT -->
+
+        <!-- Hair Travel Kit 1 -->
+        <div class="product-card-shop" data-category="hair-travel-kit" data-price="48" data-hair-type="all">
+          <a href="product-detail.html?id=hair-travel-kit-1">
+            <div class="product-image">
+              <img src="img/Hair/Hair%20Revival%20Travel%20Kit.png" alt="Hair Revival Kit">
+              <span class="badge badge-bestseller">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Travel Kit</span>
+            <h4 class="product-name">Hair Revival Kit</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(312)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$48.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Travel Kit 2 -->
+        <div class="product-card-shop" data-category="hair-travel-kit" data-price="42" data-hair-type="all">
+          <a href="product-detail.html?id=hair-travel-kit-2">
+            <div class="product-image">
+              <img src="img/Hair/Hair%20Hydration%20Travel%20Kit%20.png" alt="Hydration Travel Kit">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Travel Kit</span>
+            <h4 class="product-name">Hydration Travel Kit</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(198)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Travel Kit 3 -->
+        <div class="product-card-shop" data-category="hair-travel-kit" data-price="55" data-hair-type="all">
+          <a href="product-detail.html?id=hair-travel-kit-3">
+            <div class="product-image">
+              <img src="img/Hair/Hair%20Full%20Rescue%20Spa%20Travel%20Kit.png" alt="Full Rescue Spa">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Travel Kit</span>
+            <h4 class="product-name">Full Rescue Spa</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(245)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$55.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Hair Travel Kit 4 -->
+        <div class="product-card-shop" data-category="hair-travel-kit" data-price="38" data-hair-type="all">
+          <a href="product-detail.html?id=hair-travel-kit-4">
+            <div class="product-image">
+              <img src="img/Hair/Good%20Hair%20Day%20Travel%20Kit%20for%20all%20Hair%20Types.png" alt="Good Hair Day Kit for all Hair Types">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Hair Travel Kit</span>
+            <h4 class="product-name">Good Hair Day Kit for all Hair Types</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(167)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn next-btn">Next <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </main>
+  </div>
+
+      <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Trackers</h4>
+        <a href="tracker-skincare.html">Skincare Tracker</a>
+        <a href="tracker-haircare.html">Haircare Tracker</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header> 
+
+  <section class="hero home-hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fa-solid fa-leaf"></i> Clean Beauty, Always</span>
+      <h1>Bare, Beauty, & Honest</h1>
+      <p>Your Skin, Only Better. Discover clean, effective formulas curated for every skin type.</p>
+      <div class="hero-buttons">
+        <a href="shop-skincare.html" class="btn-hero-primary">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="advisor.html" class="btn-hero-secondary"><i class="fa-solid fa-wand-magic-sparkles"></i> Try AI Advisor</a>
+      </div>
+    </div>
+    <div class="hero-image-side">
+      <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&h=700&fit=crop" alt="Skincare products" class="hero-img-main">
+      <div class="hero-float-card hero-float-1">
+        <i class="fa-solid fa-star"></i>
+        <div>
+          <strong>4.9 Rating</strong>
+          <span>2k+ Reviews</span>
+        </div>
+      </div>
+      <div class="hero-float-card hero-float-2">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div>
+          <strong>Free Shipping</strong>
+          <span>Orders $50+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dot-divider" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Shop by Category Section -->
+  <section class="shop-by-category">
+    <h3>Shop by Category</h3>
+    
+    <!-- Skincare -->
+    <div class="category-row">
+      <h4><a href="shop-skincare.html">Skincare <i class="fa-solid fa-arrow-right"></i></a></h4>
+      <div class="category-showcase home-showcase">
+        <a href="shop-skincare.html" class="category-card">
+          <img src="img/Skincare/GentleFoanCleanser.png" alt="Cleansers">
+          <div class="category-card-icon"><i class="fa-solid fa-droplet"></i></div>
+          <div class="category-card-overlay">
+            <h5>Cleansers</h5>
+            <span>Fresh Start</span>
+          </div>
+        </a>
+        <a href="shop-skincare.html" class="category-card">
+          <img src="img/Skincare/HyaluronicAcidSerum.png" alt="Serums">
+          <div class="category-card-icon"><i class="fa-solid fa-flask"></i></div>
+          <div class="category-card-overlay">
+            <h5>Serums</h5>
+            <span>Targeted Care</span>
+          </div>
+        </a>
+        <a href="shop-skincare.html" class="category-card">
+          <img src="img/Skincare/SPF30DayCream.png" alt="SPF Moisturizers">
+          <div class="category-card-icon"><i class="fa-solid fa-sun"></i></div>
+          <div class="category-card-overlay">
+            <h5>SPF</h5>
+            <span>Sun Protection</span>
+          </div>
+        </a>
+        <a href="shop-skincare.html" class="category-card">
+          <img src="img/Skincare/ClayDetoxMask.png" alt="Face Masks">
+          <div class="category-card-icon"><i class="fa-solid fa-spa"></i></div>
+          <div class="category-card-overlay">
+            <h5>Face Masks</h5>
+            <span>Self-Care Ritual</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Makeup -->
+    <div class="category-row">
+      <h4><a href="shop-makeup.html">Makeup <i class="fa-solid fa-arrow-right"></i></a></h4>
+      <div class="category-showcase home-showcase">
+        <a href="shop-makeup.html" class="category-card">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop" alt="Face Makeup">
+          <div class="category-card-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="category-card-overlay">
+            <h5>Face</h5>
+            <span>Foundation & More</span>
+          </div>
+        </a>
+        <a href="shop-makeup.html" class="category-card">
+          <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop" alt="Lip Products">
+          <div class="category-card-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="category-card-overlay">
+            <h5>Lips</h5>
+            <span>Color & Gloss</span>
+          </div>
+        </a>
+        <a href="shop-makeup.html" class="category-card">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop" alt="Eye Makeup">
+          <div class="category-card-icon"><i class="fa-solid fa-eye"></i></div>
+          <div class="category-card-overlay">
+            <h5>Eyes</h5>
+            <span>Shadow & Liner</span>
+          </div>
+        </a>
+        <a href="shop-makeup.html" class="category-card">
+          <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=400&h=400&fit=crop" alt="Blush & Bronzer">
+          <div class="category-card-icon"><i class="fa-solid fa-sun"></i></div>
+          <div class="category-card-overlay">
+            <h5>Blush</h5>
+            <span>Rosy Glow</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hair -->
+    <div class="category-row">
+      <h4><a href="shop-hair.html">Hair <i class="fa-solid fa-arrow-right"></i></a></h4>
+      <div class="category-showcase home-showcase">
+        <a href="shop-hair.html" class="category-card">
+          <img src="img/Hair/Deep%20Moisture%20Shampoo.png" alt="Shampoo">
+          <div class="category-card-icon"><i class="fa-solid fa-pump-soap"></i></div>
+          <div class="category-card-overlay">
+            <h5>Shampoo</h5>
+            <span>Clean & Refresh</span>
+          </div>
+        </a>
+        <a href="shop-hair.html" class="category-card">
+          <img src="img/Hair/Deep%20Moisture%20Conditioner.png" alt="Conditioner">
+          <div class="category-card-icon"><i class="fa-solid fa-droplet"></i></div>
+          <div class="category-card-overlay">
+            <h5>Conditioner</h5>
+            <span>Deep Moisture</span>
+          </div>
+        </a>
+        <a href="shop-hair.html" class="category-card">
+          <img src="img/Hair/Moroccan%20Argon%20Hair%20Oil.png" alt="Hair Oil">
+          <div class="category-card-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+          <div class="category-card-overlay">
+            <h5>Hair Oil</h5>
+            <span>Shine & Nourish</span>
+          </div>
+        </a>
+        <a href="shop-hair.html" class="category-card">
+          <img src="img/Hair/Overnight%20Repair%20Hair%20Mask.png" alt="Treatments">
+          <div class="category-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="category-card-overlay">
+            <h5>Treatments</h5>
+            <span>Repair & Protect</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tools & Brushes -->
+    <div class="category-row">
+      <h4><a href="shop-tools.html">Tools & Brushes <i class="fa-solid fa-arrow-right"></i></a></h4>
+      <div class="category-showcase home-showcase">
+        <a href="shop-tools.html" class="category-card">
+          <img src="img/Tools%20%26%20Brushes/FoundationBrush.png" alt="Face Brushes">
+          <div class="category-card-icon"><i class="fa-solid fa-paintbrush"></i></div>
+          <div class="category-card-overlay">
+            <h5>Face Brushes</h5>
+            <span>Flawless Application</span>
+          </div>
+        </a>
+        <a href="shop-tools.html" class="category-card">
+          <img src="img/Tools%20%26%20Brushes/16PieceBrushSet.png" alt="Brush Sets">
+          <div class="category-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="category-card-overlay">
+            <h5>Brush Sets</h5>
+            <span>Complete Collection</span>
+          </div>
+        </a>
+        <a href="shop-tools.html" class="category-card">
+          <img src="img/Tools%20%26%20Brushes/JadeFacialRoller.png" alt="Gua Sha">
+          <div class="category-card-icon"><i class="fa-solid fa-gem"></i></div>
+          <div class="category-card-overlay">
+            <h5>Gua Sha</h5>
+            <span>Sculpt & Define</span>
+          </div>
+        </a>
+        <a href="shop-tools.html" class="category-card">
+          <img src="img/Tools%20%26%20Brushes/BeautyBlender.png" alt="Beauty Sponges">
+          <div class="category-card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <div class="category-card-overlay">
+            <h5>Sponges</h5>
+            <span>Blend Perfectly</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Nails -->
+    <div class="category-row">
+      <h4><a href="shop-nails.html">Nails <i class="fa-solid fa-arrow-right"></i></a></h4>
+      <div class="category-showcase home-showcase">
+        <a href="shop-nails.html" class="category-card">
+          <img src="img/Nails/GlossyPinkSet.png" alt="Press-on Nails">
+          <div class="category-card-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+          <div class="category-card-overlay">
+            <h5>Press-ons</h5>
+            <span>Instant Glam</span>
+          </div>
+        </a>
+        <a href="shop-nails.html" class="category-card">
+          <img src="img/Nails/ClassicFrenchTip.png" alt="French Tips">
+          <div class="category-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="category-card-overlay">
+            <h5>French Tips</h5>
+            <span>Classic Elegance</span>
+          </div>
+        </a>
+        <a href="shop-nails.html" class="category-card">
+          <img src="img/Nails/ChampageGlitterSet.png" alt="Glitter & Shimmer">
+          <div class="category-card-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="category-card-overlay">
+            <h5>Glitter</h5>
+            <span>Sparkle & Shine</span>
+          </div>
+        </a>
+        <a href="shop-nails.html" class="category-card">
+          <img src="img/Nails/CuticleOil.png" alt="Nail Care">
+          <div class="category-card-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="category-card-overlay">
+            <h5>Nail Care</h5>
+            <span>Nourish & Strengthen</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="dot-divider" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+
+  <section class="featured">
+    <h3>Featured Products</h3>
+    <p class="featured-subtitle">Hand-picked favorites our community can't stop raving about</p>
+    <div class="product-grid home-product-grid">
+
+      <div class="home-product-card">
+        <div class="home-product-image">
+          <img src="img/Skincare/VitaminCBrighteningSerum.png" alt="Glow Serum">
+          <span class="home-product-badge">Bestseller</span>
+        </div>
+        <div class="home-product-info">
+          <span class="home-product-category">Skincare</span>
+          <h4>Vitamin C Glow Serum</h4>
+          <div class="home-product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span>(128)</span>
+          </div>
+          <div class="home-product-price">
+            <span class="price-current">$34.99</span>
+          </div>
+          <a href="shop-skincare.html" class="home-product-btn">View Product</a>
+        </div>
+      </div>
+
+      <div class="home-product-card">
+        <div class="home-product-image">
+          <img src="img/Skincare/BalancingRoseToner.png" alt="Lip Oil">
+          <span class="home-product-badge badge-new">New</span>
+        </div>
+        <div class="home-product-info">
+          <span class="home-product-category">Makeup</span>
+          <h4>Honey Tinted Lip Oil</h4>
+          <div class="home-product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(89)</span>
+          </div>
+          <div class="home-product-price">
+            <span class="price-current">$18.99</span>
+          </div>
+          <a href="shop-makeup.html" class="home-product-btn">View Product</a>
+        </div>
+      </div>
+
+      <div class="home-product-card">
+        <div class="home-product-image">
+          <img src="img/Skincare/GentleFoanCleanser.png" alt="Cleanser">
+          <span class="home-product-badge badge-sale">20% Off</span>
+        </div>
+        <div class="home-product-info">
+          <span class="home-product-category">Skincare</span>
+          <h4>Gentle Foaming Cleanser</h4>
+          <div class="home-product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <span>(204)</span>
+          </div>
+          <div class="home-product-price">
+            <span class="price-current">$22.99</span>
+            <span class="price-original">$28.99</span>
+          </div>
+          <a href="shop-skincare.html" class="home-product-btn">View Product</a>
+        </div>
+      </div>
+
+      <div class="home-product-card">
+        <div class="home-product-image">
+          <img src="img/Nails/ChampageGlitterSet.png" alt="Press-on Nails">
+        </div>
+        <div class="home-product-info">
+          <span class="home-product-category">Nails</span>
+          <h4>Rose Gold Press-Ons</h4>
+          <div class="home-product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span>(67)</span>
+          </div>
+          <div class="home-product-price">
+            <span class="price-current">$15.99</span>
+          </div>
+          <a href="shop-nails.html" class="home-product-btn">View Product</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Bare Beauty Section -->
+  <section class="why-section">
+    <h3>Why Bare Beauty?</h3>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h4>Clean Ingredients</h4>
+        <p>Every product is free from parabens, sulfates, and harmful chemicals. Just what your skin needs.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-heart"></i></div>
+        <h4>Cruelty Free</h4>
+        <p>We never test on animals. Beauty should be kind to everyone — including our furry friends.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-recycle"></i></div>
+        <h4>Eco Packaging</h4>
+        <p>Sustainable, recyclable packaging because beautiful skin shouldn't cost the earth.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <h4>Free Shipping</h4>
+        <p>Enjoy free shipping on all orders over $50. Beauty delivered straight to your door.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h3>What Our Community Says</h3>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"The Vitamin C Serum completely transformed my skin. I've never received so many compliments!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <strong>Jessica M.</strong>
+            <span>Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Finally, a beauty brand that's transparent about ingredients. The press-on nails are gorgeous and last forever."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <strong>Ashley T.</strong>
+            <span>Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <p class="testimonial-text">"The AI Advisor recommended the perfect routine for my sensitive skin. Game changer for sure!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <strong>Maria L.</strong>
+            <span>Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Banner -->
+  <section class="newsletter-banner">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h3><i class="fa-solid fa-envelope-open-text"></i> Join the Glow Up</h3>
+        <p>Get exclusive deals, beauty tips, and early access to new arrivals.</p>
+      </div>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" class="newsletter-input" aria-label="Email for newsletter">
+        <button class="newsletter-btn">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Sustainability</a>
+      </div>
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

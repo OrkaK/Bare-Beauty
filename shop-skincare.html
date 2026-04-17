@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html" class="active">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+<section class="page-header header-skincare">
+    <h1>Skincare</h1>
+    <p>Nourish your skin with clean, effective formulas</p>
+  </section>
+
+  <!-- Shop Layout -->
+  <div class="shop-container">
+    
+    <!-- Filters Sidebar -->
+    <aside class="filters-sidebar">
+
+      <div class="filter-header">
+        <div class="filter-header-left">
+          <div class="filter-header-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <h3>Refine</h3>
+            <span class="filter-subtitle">Find your perfect match</span>
+          </div>
+        </div>
+        <button class="clear-filters" id="clearFilters">Clear All</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-tag"></i> Category</div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip"><input type="checkbox" name="category" value="cleanser"><span><i class="fa-solid fa-soap"></i> Cleansers</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="toner"><span><i class="fa-solid fa-droplet"></i> Toners</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="serum"><span><i class="fa-solid fa-flask"></i> Serums</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="moisturizer"><span><i class="fa-solid fa-sun"></i> SPF Moisturizers</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="eye-cream"><span><i class="fa-solid fa-eye"></i> Under-Eye</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="face-mask"><span><i class="fa-solid fa-spa"></i> Face Masks</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Skin Type Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-person"></i> Skin Type</div>
+        <div class="filter-type-cards">
+          <label class="filter-type-card">
+            <input type="checkbox" name="skin-type" value="dry">
+            <span class="type-icon">💧</span>
+            <span class="type-name">Dry</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="skin-type" value="oily">
+            <span class="type-icon">✨</span>
+            <span class="type-name">Oily</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="skin-type" value="combination">
+            <span class="type-icon">◑</span>
+            <span class="type-name">Combo</span>
+          </label>
+          <label class="filter-type-card">
+            <input type="checkbox" name="skin-type" value="sensitive">
+            <span class="type-icon">🌸</span>
+            <span class="type-name">Sensitive</span>
+          </label>
+          <label class="filter-type-card filter-type-card-wide">
+            <input type="checkbox" name="skin-type" value="all">
+            <span class="type-icon">✦</span>
+            <span class="type-name">All Skin Types</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-dollar-sign"></i> Price Range</div>
+        <div class="filter-price-pills">
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="under-25"><span>Under $25</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="25-50"><span>$25 – $50</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="50-100"><span>$50 – $100</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="over-100"><span>$100+</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Concern Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-heart"></i> Skin Concern</div>
+        <div class="filter-concern-list">
+          <label class="filter-concern-item"><input type="checkbox" name="concern" value="acne"><div class="concern-dot" style="background:#c9a77c;"></div><span>Acne &amp; Blemishes</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="concern" value="aging"><div class="concern-dot" style="background:#a07850;"></div><span>Anti-Aging</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="concern" value="dark-spots"><div class="concern-dot" style="background:#8b6345;"></div><span>Dark Spots</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="concern" value="hydration"><div class="concern-dot" style="background:#7a5538;"></div><span>Hydration</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="concern" value="pores"><div class="concern-dot" style="background:#6b4423;"></div><span>Pore Care</span><i class="fa-solid fa-check concern-check"></i></label>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="products-section">
+      <!-- Sort & Results Bar -->
+      <div class="results-bar">
+        <span class="results-count">24 Products</span>
+        <div class="sort-dropdown">
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="error-state" style="display: none;">
+        <i class="fa-solid fa-exclamation-circle"></i>
+        <h3>Oops! Something went wrong</h3>
+        <p>We couldn't load the products. Please try again.</p>
+        <button class="btn-primary">Retry</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="product-grid-shop">
+        <!-- Product Card 1 - Featured -->
+        <div class="product-card-shop" data-category="cleanser" data-price="32" data-skin-type="all">
+          <a href="product-detail.html?id=cleanser-1">
+            <div class="product-image">
+              <img src="img/Skincare/GentleFoanCleanser.png" alt="Gentle Foam Cleanser">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleanser</span>
+            <h4 class="product-name">Gentle Foam Cleanser</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$32.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 2 - New -->
+        <div class="product-card-shop" data-category="serum" data-price="58" data-skin-type="dry">
+          <a href="product-detail.html?id=serum-1">
+            <div class="product-image">
+              <img src="img/Skincare/VitaminCBrighteningSerum.png" alt="Vitamin C Brightening Serum">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Serum</span>
+            <h4 class="product-name">Vitamin C Brightening Serum</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$58.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card-shop" data-category="toner" data-price="28" data-skin-type="oily">
+          <a href="product-detail.html?id=toner-1">
+            <div class="product-image">
+              <img src="img/Skincare/BalancingRoseToner.png" alt="Balancing Rose Toner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Toner</span>
+            <h4 class="product-name">Balancing Rose Toner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 4 - Sale -->
+        <div class="product-card-shop" data-category="moisturizer" data-price="45" data-skin-type="combination">
+          <a href="product-detail.html?id=moisturizer-1">
+            <div class="product-image">
+              <img src="img/Skincare/SPF30DayCream.png" alt="SPF 30 Day Cream">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">SPF Moisturizer</span>
+            <h4 class="product-name">SPF 30 Day Cream</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(203)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$55.00</span>
+              <span class="current-price sale">$45.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="product-card-shop" data-category="eye-cream" data-price="42" data-skin-type="all">
+          <a href="product-detail.html?id=eye-cream-1">
+            <div class="product-image">
+              <img src="img/Skincare/RevitalizingEyeCream.png" alt="Revitalizing Eye Cream">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Under-Eye Cream</span>
+            <h4 class="product-name">Revitalizing Eye Cream</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(74)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 6 - Featured -->
+        <div class="product-card-shop" data-category="face-mask" data-price="38" data-skin-type="dry">
+          <a href="product-detail.html?id=mask-1">
+            <div class="product-image">
+              <img src="img/Skincare/HyfratingSheetMaskSet.png" alt="Hydrating Sheet Mask Set">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Face Mask</span>
+            <h4 class="product-name">Hydrating Sheet Mask Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(167)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 7 -->
+        <div class="product-card-shop" data-category="serum" data-price="64" data-skin-type="all">
+          <a href="product-detail.html?id=serum-2">
+            <div class="product-image">
+              <img src="img/Skincare/HyaluronicAcidSerum.png" alt="Hyaluronic Acid Serum">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Serum</span>
+            <h4 class="product-name">Hyaluronic Acid Serum</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(215)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$64.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 8 -->
+        <div class="product-card-shop" data-category="cleanser" data-price="26" data-skin-type="oily">
+          <a href="product-detail.html?id=cleanser-2">
+            <div class="product-image">
+              <img src="img/Skincare/OilControlGelCleanser.png" alt="Oil Control Gel Cleanser">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleanser</span>
+            <h4 class="product-name">Oil Control Gel Cleanser</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(94)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$26.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 9 - Sale -->
+        <div class="product-card-shop" data-category="moisturizer" data-price="38" data-skin-type="dry">
+          <a href="product-detail.html?id=moisturizer-2">
+            <div class="product-image">
+              <img src="img/Skincare/RichNightCream.png" alt="Rich Night Cream">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Moisturizer</span>
+            <h4 class="product-name">Rich Night Cream</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(142)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$48.00</span>
+              <span class="current-price sale">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 10 -->
+        <div class="product-card-shop" data-category="serum" data-price="72" data-skin-type="sensitive">
+          <a href="product-detail.html?id=serum-3">
+            <div class="product-image">
+              <img src="img/Skincare/RetinolNighSerum.png" alt="Retinol Night Serum">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Serum</span>
+            <h4 class="product-name">Retinol Night Serum</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(287)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$72.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 11 -->
+        <div class="product-card-shop" data-category="toner" data-price="34" data-skin-type="combination">
+          <a href="product-detail.html?id=toner-2">
+            <div class="product-image">
+              <img src="img/Skincare/NiacinamidePoreToner.png" alt="Niacinamide Pore Toner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Toner</span>
+            <h4 class="product-name">Niacinamide Pore Toner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(118)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 12 -->
+        <div class="product-card-shop" data-category="face-mask" data-price="22" data-skin-type="all">
+          <a href="product-detail.html?id=mask-2">
+            <div class="product-image">
+              <img src="img/Skincare/ClayDetoxMask.png" alt="Clay Detox Mask">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Face Mask</span>
+            <h4 class="product-name">Clay Detox Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(76)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn prev-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn next-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

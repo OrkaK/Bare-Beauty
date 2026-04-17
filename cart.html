@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .cart-page-body {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 5%;
+    }
+    .cart-items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg-soft);
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    .cart-summary {
+        margin-top: 2rem;
+        background: var(--bg-alt);
+        padding: 2rem;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .checkout-btn {
+        background: var(--brown-dark);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: transform 0.3s ease;
+    }
+    .checkout-btn:hover {
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link active">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="cart-page-body">
+    <h1 style="margin-bottom: 2rem;">Your Shopping Bag</h1>
+    <div id="cartView">
+        <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartView = document.getElementById('cartView');
+        let localCart = JSON.parse(localStorage.getItem('bareBeautyCart')) || [];
+        
+        async function fetchRealCartData() {
+            const token = localStorage.getItem('bareBeautyCartToken');
+            if (token) {
+                try {
+                    const res = await fetch(`http://localhost:5001/cart/${token}`);
+                    if (res.ok) {
+                        const backendCart = await res.json();
+                        localCart = backendCart.items.map(item => ({
+                            id: item.product._id,
+                            itemId: item._id, 
+                            name: item.product.name,
+                            price: item.priceAtAdd,
+                            quantity: item.quantity,
+                            image: item.product.images && item.product.images.length > 0 ? item.product.images[0] : ''
+                        }));
+                        localStorage.setItem('bareBeautyCart', JSON.stringify(localCart));
+                        cart = localCart;
+                        updateCartCount();
+                    }
+                } catch (e) { 
+                    console.error('Offline fetching cart', e); 
+                }
+            }
+            renderCartPage();
+        }
+
+        function renderCartPage() {
+            if (localCart.length === 0) {
+                cartView.innerHTML = '<p>Your cart is currently empty. <a href="index.html">Continue Shopping</a></p>';
+                return;
+            }
+            
+            let html = '<div class="cart-items-container">';
+            let total = 0;
+            
+            localCart.forEach((item, idx) => {
+                const price = typeof item.price === 'number' ? item.price : 0;
+                total += price * (item.quantity || 1);
+                
+                html += `
+                    <div class="cart-item">
+                        <div style="display:flex; align-items:center; gap: 1rem;">
+                            <img src="${item.image || 'img/placeholder.jpg'}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+                            <h4>${item.name || 'Product'}</h4>
+                            <span style="color: #666;">x ${item.quantity || 1}</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap: 1rem;">
+                            <strong>$${(price * (item.quantity || 1)).toFixed(2)}</strong>
+                            <button onclick="removeCartItem(${idx})" style="background:none; color:red; cursor:pointer;" aria-label="Remove">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            html += `
+                <div class="cart-summary">
+                    <div>
+                        <h3>Subtotal: $${total.toFixed(2)}</h3>
+                        <p style="color: #666; font-size: 0.9em;">Taxes and shipping calculated at checkout.</p>
+                    </div>
+                    <button class="checkout-btn" onclick="window.location.href='checkout.html';">
+                        Checkout
+                    </button>
+                </div>
+            `;
+            
+            cartView.innerHTML = html;
+        }
+
+        window.removeCartItem = async function(idx) {
+            const item = localCart[idx];
+            const token = localStorage.getItem('bareBeautyCartToken');
+            
+            // Backend Sync
+            if (token && item.itemId) {
+                const btn = event.currentTarget;
+                if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                try {
+                    await fetch(`http://localhost:5001/cart/${token}/items/${item.itemId}`, {
+                        method: 'DELETE'
+                    });
+                } catch(e) { console.error('Failed to delete on server'); }
+            }
+            
+            localCart.splice(idx, 1);
+            localStorage.setItem('bareBeautyCart', JSON.stringify(localCart));
+            cart = localCart; 
+            updateCartCount();
+            renderCartPage();
+        };
+
+        fetchRealCartData();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* styles.css */
+
+      /* Registration Form Styles */
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        width: 400px;
+        margin: 0 auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        margin: 10px auto;
+      }
+
+      /* Confirmation Page Styles */
+      p {
+        text-align: center;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        color: #222;
+        font-size: 1.7rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+        cursor: pointer;
+      }
+      .btn:hover {
+        letter-spacing: 0.1rem;
+        background: #f08080;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Registration</h1>
+    <form id="registrationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br />
+      <label for="about">About Him/Her:</label>
+      <textarea id="about" name="about" required></textarea>
+      <br />
+      <label for="expertise">Expertise:</label>
+      <input type="text" id="expertise" name="expertise" required />
+      <br />
+      <label for="photos">Makeup Photos (4-5):</label>
+      <input
+        type="file"
+        id="photos"
+        name="photos[]"
+        accept="image/*"
+        multiple
+        required
+      />
+      <br />
+      <br />
+      <input class="btn" type="submit" value="Create Account " />
+    </form>
+
+    <script src="server.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

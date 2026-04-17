@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" id="breadcrumb">
+    <a href="index.html">Home</a>
+    <span>/</span>
+    <a href="#" id="breadcrumb-category-link">Category</a>
+    <span>/</span>
+    <span id="breadcrumb-product">Product</span>
+  </nav>
+
+  <!-- Product Detail Section -->
+  <section class="product-detail">
+    <div class="product-detail-container">
+      
+      <!-- Product Images -->
+      <div class="product-images">
+        <div class="main-image">
+          <img src="img/skintint.jpg" alt="Product Image" id="mainProductImage">
+          <span class="badge badge-new" id="product-badge">New</span>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info-detail">
+        <span class="product-category-tag" id="product-category">Category</span>
+        <h1 class="product-title" id="product-name">Product Name</h1>
+        
+        <!-- Rating -->
+        <div class="product-rating-detail">
+          <div class="stars" id="product-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="rating-text" id="product-rating">5.0</span>
+          <span class="review-count" id="product-reviews">(0 Reviews)</span>
+        </div>
+
+        <!-- Price -->
+        <div class="product-price-detail">
+          <span class="current-price" id="product-price">$0.00</span>
+          <span class="original-price" id="product-original-price"></span>
+        </div>
+
+        <!-- Short Description -->
+        <p class="product-short-desc" id="product-description">
+          Product description loading...
+        </p>
+
+        <!-- Key Features/Ingredients -->
+        <div class="product-features" id="product-features">
+          <h4>Key Features:</h4>
+          <ul id="features-list">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="product-actions">
+          <div class="quantity-selector">
+            <button class="qty-btn" onclick="decreaseQty()">-</button>
+            <input type="number" value="1" min="1" max="10" id="quantity">
+            <button class="qty-btn" onclick="increaseQty()">+</button>
+          </div>
+          <button class="add-to-cart-btn-large" onclick="addProductToCart()">
+            <i class="fa-solid fa-shopping-bag"></i>
+            Add to Cart
+          </button>
+        </div>
+
+        <!-- Shipping Info -->
+        <div class="shipping-info">
+          <div class="shipping-item">
+            <i class="fa-solid fa-truck"></i>
+            <span>Free shipping on orders $50+</span>
+          </div>
+          <div class="shipping-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>30-day returns</span>
+          </div>
+          <div class="shipping-item">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Clean, cruelty-free products</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Load product when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      loadProductFromURL();
+    });
+
+    // Quantity functions
+    function decreaseQty() {
+      const qty = document.getElementById('quantity');
+      if (qty.value > 1) qty.value = parseInt(qty.value) - 1;
+    }
+
+    function increaseQty() {
+      const qty = document.getElementById('quantity');
+      if (qty.value < 10) qty.value = parseInt(qty.value) + 1;
+    }
+
+    // Add to cart function
+    function addProductToCart() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      const qty = parseInt(document.getElementById('quantity').value);
+      
+      if (productId && typeof addToCart === 'function') {
+        for (let i = 0; i < qty; i++) {
+          addToCart(productId);
+        }
+        alert('Added to cart!');
+      }
+    }
+  </script>
+</body>
+</html>

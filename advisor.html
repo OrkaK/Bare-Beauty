@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Beauty Advisor | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow active"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Advisor Hero -->
+  <section class="advisor-hero">
+    <div class="advisor-hero-glow"></div>
+    <div class="advisor-hero-inner">
+      <div class="advisor-hero-badge">
+        <span class="advisor-pulse-dot"></span> AI-Powered Analysis
+      </div>
+      <h1>Your Personal<br>Beauty Advisor</h1>
+      <p>Analyze your skin and get expert recommendations <br>tailored to your unique beauty profile</p>
+      <div class="advisor-hero-features">
+        <div class="advisor-feature-chip"><i class="fa-solid fa-shield-halved"></i> Privacy First</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-bolt"></i> Instant Results</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> Expert-Curated</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Advisor Container -->
+  <div class="advisor-container">
+
+    <!-- Step 1: Camera/Analysis Section -->
+    <section class="advisor-step" id="step-camera">
+      <div class="advisor-card">
+        <div class="step-header">
+          <div class="step-badge"><span>01</span> Analyze</div>
+          <h2>Discover Your Skin Profile</h2>
+          <p>Use your camera for instant AI analysis, or fill in your details manually</p>
+        </div>
+
+      <div class="analysis-options">
+        <!-- Camera Option -->
+        <div class="camera-section">
+          <div class="camera-container" id="cameraContainer">
+            <video id="cameraFeed" autoplay playsinline></video>
+            <canvas id="cameraCanvas" style="display: none;"></canvas>
+            <div class="camera-overlay" id="cameraOverlay">
+              <div class="face-guide">
+                <div class="face-outline"></div>
+                <p>Position your face within the frame</p>
+              </div>
+            </div>
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <i class="fa-solid fa-camera"></i>
+              <p>Camera preview will appear here</p>
+            </div>
+          </div>
+          
+          <div class="camera-controls">
+            <button class="advisor-btn primary" id="startCameraBtn">
+              <i class="fa-solid fa-camera"></i> Start Camera
+            </button>
+            <button class="advisor-btn secondary" id="captureBtn" style="display: none;">
+              <i class="fa-solid fa-circle"></i> Capture & Analyze
+            </button>
+            <button class="advisor-btn outline" id="retakeBtn" style="display: none;">
+              <i class="fa-solid fa-redo"></i> Retake
+            </button>
+          </div>
+
+          <div class="privacy-notice">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Your photo is analyzed locally and never stored or transmitted</span>
+          </div>
+        </div>
+
+        <div class="divider-or">
+          <span>OR</span>
+        </div>
+
+        <!-- Manual Input Option -->
+        <div class="manual-section">
+          <h3>Tell Us About Your Skin</h3>
+          
+          <div class="input-group">
+            <label>Skin Type</label>
+            <div class="option-buttons" id="skinTypeOptions">
+              <button class="option-btn" data-value="dry">
+                <i class="fa-solid fa-droplet-slash"></i> Dry
+              </button>
+              <button class="option-btn" data-value="oily">
+                <i class="fa-solid fa-droplet"></i> Oily
+              </button>
+              <button class="option-btn" data-value="combination">
+                <i class="fa-solid fa-circle-half-stroke"></i> Combination
+              </button>
+              <button class="option-btn" data-value="sensitive">
+                <i class="fa-solid fa-heart"></i> Sensitive
+              </button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Skin Tone</label>
+            <div class="skin-tone-picker" id="skinTonePicker">
+              <button class="tone-btn" data-value="fair" style="background: #f5d5c8;" title="Fair"></button>
+              <button class="tone-btn" data-value="light" style="background: #e8c4a8;" title="Light"></button>
+              <button class="tone-btn" data-value="medium" style="background: #c9a077;" title="Medium"></button>
+              <button class="tone-btn" data-value="tan" style="background: #a67c52;" title="Tan"></button>
+              <button class="tone-btn" data-value="deep" style="background: #6b4423;" title="Deep"></button>
+              <button class="tone-btn" data-value="rich" style="background: #3d2314;" title="Rich"></button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Skin Concerns (Select all that apply)</label>
+            <div class="checkbox-group" id="skinConcerns">
+              <label class="checkbox-option">
+                <input type="checkbox" value="acne"> Acne & Blemishes
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="aging"> Fine Lines & Wrinkles
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="dark-spots"> Dark Spots & Pigmentation
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="dryness"> Dryness & Dehydration
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="redness"> Redness & Sensitivity
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="pores"> Large Pores
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="dark-circles"> Dark Circles
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="dullness"> Dullness
+              </label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Undertone</label>
+            <div class="option-buttons" id="undertoneOptions">
+              <button class="option-btn" data-value="warm">
+                <i class="fa-solid fa-sun"></i> Warm
+              </button>
+              <button class="option-btn" data-value="cool">
+                <i class="fa-solid fa-snowflake"></i> Cool
+              </button>
+              <button class="option-btn" data-value="neutral">
+                <i class="fa-solid fa-circle"></i> Neutral
+              </button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Preferences</label>
+            <div class="checkbox-group" id="preferences">
+              <label class="checkbox-option">
+                <input type="checkbox" value="cruelty-free"> Cruelty-Free
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="vegan"> Vegan
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="budget"> Budget-Friendly
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" value="luxury"> Luxury
+              </label>
+            </div>
+          </div>
+
+          <button class="advisor-btn primary full-width" id="manualAnalyzeBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Get My Recommendations
+          </button>
+        </div>
+      </div>
+      </div><!-- close advisor-card -->
+    </section>
+
+    <!-- Step 2: Analysis Results -->
+    <section class="advisor-step hidden" id="step-results">
+      <div class="advisor-card">
+        <div class="step-header">
+          <div class="step-badge"><span>02</span> Results</div>
+          <h2>Your Skin Analysis</h2>
+          <p>Based on our analysis, here's what we found</p>
+        </div>
+
+      <div class="analysis-results">
+        <div class="result-card">
+          <div class="result-icon"><i class="fa-solid fa-droplet"></i></div>
+          <h4>Skin Type</h4>
+          <p id="resultSkinType">--</p>
+        </div>
+        <div class="result-card">
+          <div class="result-icon"><i class="fa-solid fa-palette"></i></div>
+          <h4>Skin Tone</h4>
+          <p id="resultSkinTone">--</p>
+        </div>
+        <div class="result-card">
+          <div class="result-icon"><i class="fa-solid fa-sun"></i></div>
+          <h4>Undertone</h4>
+          <p id="resultUndertone">--</p>
+        </div>
+        <div class="result-card concerns">
+          <div class="result-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h4>Key Concerns</h4>
+          <ul id="resultConcerns">
+            <li>--</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="advisor-btn outline" id="reanalyzeBtn">
+        <i class="fa-solid fa-arrow-left"></i> Start Over
+      </button>
+      </div><!-- close advisor-card -->
+    </section>
+
+    <!-- Step 3: Recommendations -->
+    <section class="advisor-step hidden" id="step-recommendations">
+      <div class="advisor-card">
+        <div class="step-header">
+          <div class="step-badge"><span>03</span> Picks</div>
+          <h2>Your Personalized Recommendations</h2>
+          <p>Products hand-picked for your unique skin needs</p>
+        </div>
+
+      <!-- Skincare Routine -->
+      <div class="recommendation-section">
+        <h3><i class="fa-solid fa-spa"></i> Your Skincare Routine</h3>
+        <div class="routine-steps" id="skincareRoutine">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Makeup Recommendations -->
+      <div class="recommendation-section">
+        <h3><i class="fa-solid fa-paintbrush"></i> Makeup That Complements You</h3>
+        <div class="product-recommendations" id="makeupRecommendations">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Tools Recommendations -->
+      <div class="recommendation-section">
+        <h3><i class="fa-solid fa-wand-sparkles"></i> Recommended Tools</h3>
+        <div class="product-recommendations" id="toolRecommendations">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Deals Section -->
+      <div class="recommendation-section deals-section">
+        <h3><i class="fa-solid fa-tags"></i> Special Deals on Your Picks</h3>
+        <div class="deals-banner">
+          <span class="deal-badge">Limited Time</span>
+          <p>Save up to <strong>20% off</strong> on selected recommendations!</p>
+        </div>
+        <div class="product-recommendations" id="dealsRecommendations">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      </div><!-- close advisor-card -->
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="advisor-step hidden" id="step-feedback">
+      <div class="advisor-card feedback-card">
+        <h3><i class="fa-solid fa-star"></i> How Did We Do?</h3>
+        <p>Help us improve your recommendations</p>
+        <div class="star-rating" id="feedbackRating">
+          <i class="fa-regular fa-star" data-rating="1"></i>
+          <i class="fa-regular fa-star" data-rating="2"></i>
+          <i class="fa-regular fa-star" data-rating="3"></i>
+          <i class="fa-regular fa-star" data-rating="4"></i>
+          <i class="fa-regular fa-star" data-rating="5"></i>
+        </div>
+        <textarea id="feedbackText" placeholder="Tell us what you think of your recommendations..."></textarea>
+        <button class="advisor-btn primary" id="submitFeedbackBtn">Submit Feedback</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="advisor-footer">
+    <p><i class="fa-solid fa-shield-halved"></i> Your privacy is our priority. Facial analysis is performed locally on your device.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="advisor.js"></script>
+</body>
+</html>

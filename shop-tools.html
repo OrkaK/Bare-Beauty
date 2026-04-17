@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools & Brushes | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar Component -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html" class="active">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header header-tools">
+    <h1>Tools & Brushes</h1>
+    <p>Professional-quality tools for flawless application</p>
+  </section>
+
+  <!-- Shop Layout -->
+  <div class="shop-container">
+    
+    <!-- Filters Sidebar -->
+    <aside class="filters-sidebar">
+
+      <div class="filter-header">
+        <div class="filter-header-left">
+          <div class="filter-header-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <h3>Refine</h3>
+            <span class="filter-subtitle">Find your perfect match</span>
+          </div>
+        </div>
+        <button class="clear-filters" id="clearFilters">Clear All</button>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-tag"></i> Category</div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip"><input type="checkbox" name="category" value="makeup-brushes"><span><i class="fa-solid fa-paintbrush"></i> Brushes</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="brush-sets"><span><i class="fa-solid fa-layer-group"></i> Brush Sets</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="brows-lashes"><span><i class="fa-solid fa-eye"></i> Brows &amp; Lashes</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="gua-sha"><span><i class="fa-solid fa-gem"></i> Gua Sha</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="red-light"><span><i class="fa-solid fa-bolt"></i> Red Light</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="sponges"><span><i class="fa-solid fa-circle"></i> Sponges</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="accessories"><span><i class="fa-solid fa-star"></i> Accessories</span></label>
+          <label class="filter-chip"><input type="checkbox" name="category" value="cleaning-care"><span><i class="fa-solid fa-soap"></i> Cleaning</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Brush Type Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-paintbrush"></i> Brush Type</div>
+        <div class="filter-chip-grid">
+          <label class="filter-chip"><input type="checkbox" name="brush-type" value="face"><span>Face</span></label>
+          <label class="filter-chip"><input type="checkbox" name="brush-type" value="eye"><span>Eye</span></label>
+          <label class="filter-chip"><input type="checkbox" name="brush-type" value="lip"><span>Lip</span></label>
+          <label class="filter-chip"><input type="checkbox" name="brush-type" value="contour"><span>Contour</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-dollar-sign"></i> Price Range</div>
+        <div class="filter-price-pills">
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="under-20"><span>Under $20</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="20-50"><span>$20 – $50</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="50-100"><span>$50 – $100</span></label>
+          <label class="filter-price-pill"><input type="checkbox" name="price" value="over-100"><span>$100+</span></label>
+        </div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <!-- Material Filter -->
+      <div class="filter-group">
+        <div class="filter-group-label"><i class="fa-solid fa-leaf"></i> Material</div>
+        <div class="filter-concern-list">
+          <label class="filter-concern-item"><input type="checkbox" name="material" value="synthetic"><div class="concern-dot" style="background:#c9a77c;"></div><span>Synthetic</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="material" value="natural"><div class="concern-dot" style="background:#a07850;"></div><span>Natural</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="material" value="rose-quartz"><div class="concern-dot" style="background:#e8a0a0;"></div><span>Rose Quartz</span><i class="fa-solid fa-check concern-check"></i></label>
+          <label class="filter-concern-item"><input type="checkbox" name="material" value="jade"><div class="concern-dot" style="background:#7aab8a;"></div><span>Jade</span><i class="fa-solid fa-check concern-check"></i></label>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="products-section">
+      <!-- Sort & Results Bar -->
+      <div class="results-bar">
+        <span class="results-count">39 Products</span>
+        <div class="sort-dropdown">
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loading-state" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="product-grid-shop">
+        <!-- Product Card 1 - Featured -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="68">
+          <a href="product-detail.html?id=brush-set-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/16PieceBrushSet.png" alt="Complete Brush Set">
+              <span class="badge badge-featured">Featured</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">16-Piece Face & Eye Brush Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(245)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$68.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 2 - New -->
+        <div class="product-card-shop" data-category="gua-sha" data-price="32">
+          <a href="product-detail.html?id=gua-sha-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/JadeFacialRoller.png" alt="Rose Quartz Gua Sha">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Gua Sha</span>
+            <h4 class="product-name">Rose Quartz Gua Sha Stone</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$12.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card-shop" data-category="red-light" data-price="189">
+          <a href="product-detail.html?id=red-light-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/Redlightwand.png" alt="Red Light Therapy Wand">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Red Light Therapy</span>
+            <h4 class="product-name">LED Red Light Therapy Wand</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(312)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$189.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/FoundationBrush.png" alt="Foundation Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Foundation Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/ConcealerBrush.png" alt="Concealer Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Concealer Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/PowderBrush.png" alt="Powder Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name"> Powder Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 7 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BlushBrush.png" alt="Blush Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Blush Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 8 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BronzerBrush.png" alt="Bronzer Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Bronzer Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 9 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/HighligterBrush.png" alt="Highlighter Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Highlighter Brushes</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 10 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BeautyBlender.png" alt="Beauty Blender">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Beauty Blender</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 11 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EyeshadowBrush.png" alt="Eye Shadow Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eye Tools</span>
+            <h4 class="product-name">Eye Shadow Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 12 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BlendingBrush.png" alt="Blending Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eye Tools</span>
+            <h4 class="product-name">Blending Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 13 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EyelinerBrush.png" alt="Eyeliner Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eye Tools</span>
+            <h4 class="product-name">Eyeliner Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 14 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BrowBrush.png" alt="Brow Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eye Tools</span>
+            <h4 class="product-name">Brow Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 15 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="24">
+          <a href="product-detail.html?id=foundation-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/LashCombBrush.png" alt="Lash Comb Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Eye Tools</span>
+            <h4 class="product-name">Lash Comb Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$24.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <!-- Product Card 16 -->
+        <div class="product-card-shop" data-category="gua-sha" data-price="28">
+          <a href="product-detail.html?id=jade-roller-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/JadeFacialRoller.png" alt="Jade Facial Roller">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Gua Sha</span>
+            <h4 class="product-name">Jade Facial Roller</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(203)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 17 - Sale -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="42">
+          <a href="product-detail.html?id=eye-brush-set-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EssentialTravelSet.png" alt="Eye Brush Set">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">Essential travel Brush Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(178)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$55.00</span>
+              <span class="current-price sale">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 18 -->
+        <div class="product-card-shop" data-category="sponges" data-price="16">
+          <a href="product-detail.html?id=sponge-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/VelvetBeautyBlenderSet.png" alt="Beauty Blender Set">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Beauty Sponge</span>
+            <h4 class="product-name">Velvet Beauty Blender Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$16.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 19 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="18">
+          <a href="product-detail.html?id=powder-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/LipBrush.png" alt="Lip Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Tools</span>
+            <h4 class="product-name"> Lip Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 20 -->
+        <div class="product-card-shop" data-category="accessories" data-price="22">
+          <a href="product-detail.html?id=brush-cleaner-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/LipApplicators.png" alt="Lip Applicators">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Lip Tools</span>
+            <h4 class="product-name">Lip applicators</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(97)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 21 - Sale -->
+        <div class="product-card-shop" data-category="red-light" data-price="149">
+          <a href="product-detail.html?id=red-light-2">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/Redlightwand.png" alt="LED Face Mask">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Red Light Therapy</span>
+            <h4 class="product-name">LED Face Mask</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(267)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$199.00</span>
+              <span class="current-price sale">$149.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 22 -->
+        <div class="product-card-shop" data-category="makeup-brushes" data-price="14">
+          <a href="product-detail.html?id=contour-brush-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/FoundationBrush.png" alt="Contour Brush">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Makeup Brush</span>
+            <h4 class="product-name">Angled Contour Brush</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(142)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$14.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 23 -->
+        <div class="product-card-shop" data-category="gua-sha" data-price="38">
+          <a href="product-detail.html?id=gua-sha-2">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/JadeFacialRoller.png" alt="Jade Gua Sha Set">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Gua Sha</span>
+            <h4 class="product-name">Jade Gua Sha & Roller Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(198)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$38.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- BROWS & LASHES -->
+        <!-- Product Card 24 - Brow Spoolies -->
+        <div class="product-card-shop" data-category="brows-lashes" data-price="8">
+          <a href="product-detail.html?id=brow-spoolies-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BrowBrush.png" alt="Brow Spoolies">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brows & Lashes</span>
+            <h4 class="product-name">Disposable Brow Spoolies (50 Pack)</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$8.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 25 - Brow Scissors -->
+        <div class="product-card-shop" data-category="brows-lashes" data-price="14">
+          <a href="product-detail.html?id=brow-scissors-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BrowBrush.png" alt="Brow Scissors">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brows & Lashes</span>
+            <h4 class="product-name">Precision Brow Scissors</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(189)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$14.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 26 - Eyelash Curler -->
+        <div class="product-card-shop" data-category="brows-lashes" data-price="18">
+          <a href="product-detail.html?id=eyelash-curler-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/LashCombBrush.png" alt="Eyelash Curler">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brows & Lashes</span>
+            <h4 class="product-name">Professional Eyelash Curler</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(276)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 27 - Lash Applicator -->
+        <div class="product-card-shop" data-category="brows-lashes" data-price="12">
+          <a href="product-detail.html?id=lash-applicator-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/LashCombBrush.png" alt="Lash Applicator">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brows & Lashes</span>
+            <h4 class="product-name">Dual-End Lash Applicator</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(124)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$12.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- TOOL SETS -->
+        <!-- Product Card 28 - Face Brush Set -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="58">
+          <a href="product-detail.html?id=face-brush-set-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/16PieceBrushSet.png" alt="Face Brush Set">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">8-Piece Face Brush Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(389)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$58.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 29 - Eye Brush Set -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="45">
+          <a href="product-detail.html?id=eye-brush-set-2">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EssentialTravelSet.png" alt="Eye Brush Set">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">12-Piece Eye Brush Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(267)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$45.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 30 - Complete Brush Kit -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="98">
+          <a href="product-detail.html?id=complete-brush-kit-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/16PieceBrushSet.png" alt="Complete Brush Kit">
+              <span class="badge badge-featured">Best Value</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">24-Piece Complete Brush Kit</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(412)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$98.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 31 - Travel Brush Set -->
+        <div class="product-card-shop" data-category="brush-sets" data-price="36">
+          <a href="product-detail.html?id=travel-brush-set-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EssentialTravelSet.png" alt="Travel Brush Set">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Brush Set</span>
+            <h4 class="product-name">Mini Travel Brush Set</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(298)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$45.00</span>
+              <span class="current-price sale">$36.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- ACCESSORIES -->
+        <!-- Product Card 32 - Makeup Pouch -->
+        <div class="product-card-shop" data-category="accessories" data-price="28">
+          <a href="product-detail.html?id=makeup-pouch-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/VelvetBeautyBlenderSet.png" alt="Makeup Pouch">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Accessories</span>
+            <h4 class="product-name">Velvet Makeup Pouch</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(187)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$28.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 33 - Brush Holder -->
+        <div class="product-card-shop" data-category="accessories" data-price="22">
+          <a href="product-detail.html?id=brush-holder-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BeautyBlender.png" alt="Brush Holder">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Accessories</span>
+            <h4 class="product-name">Acrylic Brush Holder</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(134)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$22.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 34 - Brush Drying Rack -->
+        <div class="product-card-shop" data-category="accessories" data-price="18">
+          <a href="product-detail.html?id=drying-rack-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/PowderBrush.png" alt="Brush Drying Rack">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Accessories</span>
+            <h4 class="product-name">Collapsible Brush Drying Rack</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(156)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$18.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 35 - Travel Case -->
+        <div class="product-card-shop" data-category="accessories" data-price="42">
+          <a href="product-detail.html?id=travel-case-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/EssentialTravelSet.png" alt="Travel Case">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Accessories</span>
+            <h4 class="product-name">Professional Travel Case</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(234)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$42.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- CLEANING & CARE -->
+        <!-- Product Card 36 - Brush Cleaner Spray -->
+        <div class="product-card-shop" data-category="cleaning-care" data-price="16">
+          <a href="product-detail.html?id=brush-cleaner-spray-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BlushBrush.png" alt="Brush Cleaner Spray">
+              <span class="badge badge-featured">Bestseller</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleaning & Care</span>
+            <h4 class="product-name">Quick-Dry Brush Cleaner Spray</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(378)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$16.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 37 - Solid Brush Cleaner -->
+        <div class="product-card-shop" data-category="cleaning-care" data-price="14">
+          <a href="product-detail.html?id=solid-brush-cleaner-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/ConcealerBrush.png" alt="Solid Brush Cleaner">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleaning & Care</span>
+            <h4 class="product-name">Solid Brush Cleaner Bar</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span class="rating-count">(213)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$14.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 38 - Cleaning Mat -->
+        <div class="product-card-shop" data-category="cleaning-care" data-price="12">
+          <a href="product-detail.html?id=cleaning-mat-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/BronzerBrush.png" alt="Cleaning Mat">
+              <span class="badge badge-new">New</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleaning & Care</span>
+            <h4 class="product-name">Silicone Brush Cleaning Mat</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-count">(289)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$12.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product Card 39 - Sponge Cleaner -->
+        <div class="product-card-shop" data-category="cleaning-care" data-price="10">
+          <a href="product-detail.html?id=sponge-cleaner-1">
+            <div class="product-image">
+              <img src="img/Tools%20%26%20Brushes/VelvetBeautyBlenderSet.png" alt="Sponge Cleaner">
+              <span class="badge badge-sale">Sale</span>
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </a>
+          <div class="product-info">
+            <span class="product-category">Cleaning & Care</span>
+            <h4 class="product-name">Gentle Sponge Cleaner</h4>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <span class="rating-count">(167)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">$14.00</span>
+              <span class="current-price sale">$10.00</span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn prev-btn" disabled><i class="fa-solid fa-chevron-left"></i> Previous</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn next-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools & Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Ingredients</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

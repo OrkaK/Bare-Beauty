@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .order-conf-page {
+        max-width: 800px;
+        margin: 6rem auto;
+        padding: 0 5%;
+        text-align: center;
+    }
+    .check-icon {
+        font-size: 5rem;
+        color: #4CAF50;
+        margin-bottom: 1.5rem;
+    }
+    .order-number {
+        font-size: 1.2rem;
+        color: var(--text-medium);
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: var(--bg-soft);
+        border-radius: 8px;
+        display: inline-block;
+    }
+    .shop-more-btn {
+        display: inline-block;
+        background: var(--brown-dark);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 2rem;
+        transition: transform 0.3s ease;
+    }
+    .shop-more-btn:hover {
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="navbar" style="justify-content: center;">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+    </div>
+  </header>
+
+  <section class="order-conf-page">
+    <i class="fa-solid fa-circle-check check-icon"></i>
+    <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--brown-dark);">Thank You For Your Order!</h1>
+    <p style="font-size: 1.1rem; color: var(--text-medium); margin-top: 1rem;">
+      Your payment was successful and your order is being processed. 
+      You will receive an email confirmation shortly.
+    </p>
+    
+    <div class="order-number">
+      <strong>Order #<span id="randomOrderRef"></span></strong>
+    </div>
+
+    <div>
+      <a href="index.html" class="shop-more-btn">Continue Shopping</a>
+    </div>
+  </section>
+
+  <footer class="site-footer" style="margin-top: 4rem;">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Generate a random order number
+    document.getElementById('randomOrderRef').innerText = 'BB-' + Math.floor(100000 + Math.random() * 900000);
+  </script>
+</body>
+</html>

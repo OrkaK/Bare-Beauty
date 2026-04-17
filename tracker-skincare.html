@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare Tracker | Bare Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="top-bar">
+      <div class="top-bar-left"></div>
+      <div class="top-bar-right">
+        <a href="login.html"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="cart.html" class="cart-link">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="img/logo.png" alt="Bare Beauty Logo" class="site-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools &amp; Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </nav>
+      <div class="nav-utilities">
+        <a href="tracker-skincare.html" class="nav-pill active"><i class="fa-solid fa-clipboard-list"></i> Track Skincare</a>
+        <a href="tracker-haircare.html" class="nav-pill"><i class="fa-solid fa-clipboard-list"></i> Track Hair</a>
+        <a href="advisor.html" class="nav-pill nav-pill-glow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Advisor</a>
+      </div>
+      <div class="search-engine">
+        <input type="text" placeholder="Search for products" class="search-input" id="searchInput">
+        <button type="submit" class="search-submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="advisor-hero tracker-hero-skin">
+    <div class="advisor-hero-glow"></div>
+    <div class="advisor-hero-inner">
+      <div class="advisor-hero-badge">
+        <span class="advisor-pulse-dot"></span> Daily Ritual
+      </div>
+      <h1>Skincare<br>Tracker</h1>
+      <p>Log your routine. Reveal your glow.</p>
+      <div class="advisor-hero-features">
+        <div class="advisor-feature-chip"><i class="fa-solid fa-sun"></i> Morning Log</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-moon"></i> Evening Log</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-heart-pulse"></i> Symptoms</div>
+        <div class="advisor-feature-chip"><i class="fa-solid fa-clock-rotate-left"></i> History</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracker Container -->
+  <div class="tracker-advisor-wrap">
+
+    <!-- Tabs -->
+    <div class="tracker-tabs">
+      <button class="tab-btn active" data-tab="morning">
+        <i class="fa-solid fa-sun"></i> <span>Morning</span>
+      </button>
+      <button class="tab-btn" data-tab="evening">
+        <i class="fa-solid fa-moon"></i> <span>Evening</span>
+      </button>
+      <button class="tab-btn" data-tab="symptoms">
+        <i class="fa-solid fa-heart-pulse"></i> <span>Symptoms</span>
+      </button>
+      <button class="tab-btn" data-tab="history">
+        <i class="fa-solid fa-clock-rotate-left"></i> <span>History</span>
+      </button>
+    </div>
+
+    <!-- ===== MORNING TAB ===== -->
+    <div class="tracker-tab-content active" id="morning-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-sun"></i> Morning</div>
+          <h2>Morning Skincare Log</h2>
+          <p>Start your day with intention</p>
+        </div>
+
+        <div class="analysis-options">
+
+          <!-- Camera -->
+          <div class="camera-section">
+            <div class="camera-container" id="scMorningContainer">
+              <video id="scMorningFeed" autoplay playsinline></video>
+              <canvas id="scMorningCanvas" style="display:none;"></canvas>
+              <div class="camera-placeholder" id="scMorningPlaceholder">
+                <i class="fa-solid fa-camera"></i>
+                <p>Camera preview will appear here</p>
+              </div>
+            </div>
+            <div class="camera-controls">
+              <button type="button" class="advisor-btn primary" id="scMorningStartBtn">
+                <i class="fa-solid fa-camera"></i> Start Camera
+              </button>
+              <button type="button" class="advisor-btn secondary" id="scMorningCaptureBtn" style="display:none;">
+                <i class="fa-solid fa-circle"></i> Capture Photo
+              </button>
+              <button type="button" class="advisor-btn outline" id="scMorningRetakeBtn" style="display:none;">
+                <i class="fa-solid fa-redo"></i> Retake
+              </button>
+            </div>
+            <div class="privacy-notice">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Your photo is analyzed locally and never stored or transmitted</span>
+            </div>
+          </div>
+
+          <div class="divider-or"><span>OR</span></div>
+
+          <!-- Form -->
+          <div class="manual-section">
+            <h3>Log Your Morning Routine</h3>
+            <form id="morning-form" class="tracker-form">
+
+              <div class="input-group">
+                <label>Date</label>
+                <input type="date" id="morning-date" name="date" required class="tracker-input">
+              </div>
+
+              <div class="input-group">
+                <label>How Does Your Skin Feel This Morning?</label>
+                <div class="option-buttons" id="morningSkinFeel">
+                  <button type="button" class="option-btn" data-value="normal"><i class="fa-solid fa-face-smile"></i> Normal</button>
+                  <button type="button" class="option-btn" data-value="dry"><i class="fa-solid fa-droplet-slash"></i> Dry</button>
+                  <button type="button" class="option-btn" data-value="oily"><i class="fa-solid fa-droplet"></i> Oily</button>
+                  <button type="button" class="option-btn" data-value="sensitive"><i class="fa-solid fa-heart"></i> Sensitive</button>
+                  <button type="button" class="option-btn" data-value="combination"><i class="fa-solid fa-circle-half-stroke"></i> Combination</button>
+                </div>
+                <input type="hidden" id="morning-skin-feel" name="skinFeel">
+              </div>
+
+              <div class="input-group">
+                <label>Products Used</label>
+                <div class="product-select-grid">
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Gentle Foam Cleanser">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/GentleFoanCleanser.png" alt="Cleanser">
+                      <span>Gentle Foam Cleanser</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Balancing Rose Toner">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/BalancingRoseToner.png" alt="Toner">
+                      <span>Balancing Rose Toner</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Vitamin C Brightening Serum">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/VitaminCBrighteningSerum.png" alt="Serum">
+                      <span>Vitamin C Serum</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Hyaluronic Acid Serum">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/HyaluronicAcidSerum.png" alt="Serum">
+                      <span>Hyaluronic Acid Serum</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="SPF 30 Day Cream">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/SPF30DayCream.png" alt="Moisturizer">
+                      <span>SPF 30 Day Cream</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Revitalizing Eye Cream">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/RevitalizingEyeCream.png" alt="Eye Cream">
+                      <span>Revitalizing Eye Cream</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Notes</label>
+                <textarea id="morning-notes" name="notes" rows="3" placeholder="How does your skin feel this morning?"></textarea>
+              </div>
+
+              <button type="submit" class="advisor-btn primary full-width">
+                <i class="fa-solid fa-check"></i> Save Morning Log
+              </button>
+            </form>
+          </div>
+        </div><!-- end analysis-options -->
+      </div>
+    </div>
+
+    <!-- ===== EVENING TAB ===== -->
+    <div class="tracker-tab-content" id="evening-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-moon"></i> Evening</div>
+          <h2>Evening Skincare Log</h2>
+          <p>Wind down and nourish your skin</p>
+        </div>
+
+        <div class="analysis-options">
+
+          <!-- Camera -->
+          <div class="camera-section">
+            <div class="camera-container" id="scEveningContainer">
+              <video id="scEveningFeed" autoplay playsinline></video>
+              <canvas id="scEveningCanvas" style="display:none;"></canvas>
+              <div class="camera-placeholder" id="scEveningPlaceholder">
+                <i class="fa-solid fa-camera"></i>
+                <p>Camera preview will appear here</p>
+              </div>
+            </div>
+            <div class="camera-controls">
+              <button type="button" class="advisor-btn primary" id="scEveningStartBtn">
+                <i class="fa-solid fa-camera"></i> Start Camera
+              </button>
+              <button type="button" class="advisor-btn secondary" id="scEveningCaptureBtn" style="display:none;">
+                <i class="fa-solid fa-circle"></i> Capture Photo
+              </button>
+              <button type="button" class="advisor-btn outline" id="scEveningRetakeBtn" style="display:none;">
+                <i class="fa-solid fa-redo"></i> Retake
+              </button>
+            </div>
+            <div class="privacy-notice">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Your photo is analyzed locally and never stored or transmitted</span>
+            </div>
+          </div>
+
+          <div class="divider-or"><span>OR</span></div>
+
+          <!-- Form -->
+          <div class="manual-section">
+            <h3>Log Your Evening Routine</h3>
+            <form id="evening-form" class="tracker-form">
+
+              <div class="input-group">
+                <label>Date</label>
+                <input type="date" id="evening-date" name="date" required class="tracker-input">
+              </div>
+
+              <div class="input-group">
+                <label>How Does Your Skin Feel This Evening?</label>
+                <div class="option-buttons" id="eveningSkinFeel">
+                  <button type="button" class="option-btn" data-value="normal"><i class="fa-solid fa-face-smile"></i> Normal</button>
+                  <button type="button" class="option-btn" data-value="dry"><i class="fa-solid fa-droplet-slash"></i> Dry</button>
+                  <button type="button" class="option-btn" data-value="oily"><i class="fa-solid fa-droplet"></i> Oily</button>
+                  <button type="button" class="option-btn" data-value="stressed"><i class="fa-solid fa-triangle-exclamation"></i> Stressed</button>
+                  <button type="button" class="option-btn" data-value="sensitive"><i class="fa-solid fa-heart"></i> Sensitive</button>
+                </div>
+                <input type="hidden" id="evening-skin-feel" name="skinFeel">
+              </div>
+
+              <div class="input-group">
+                <label>Products Used</label>
+                <div class="product-select-grid">
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Gentle Foam Cleanser">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/GentleFoanCleanser.png" alt="Cleanser">
+                      <span>Gentle Foam Cleanser</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Oil Control Gel Cleanser">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/OilControlGelCleanser.png" alt="Cleanser">
+                      <span>Oil Control Cleanser</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Balancing Rose Toner">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/BalancingRoseToner.png" alt="Toner">
+                      <span>Balancing Rose Toner</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Niacinamide Pore Toner">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/NiacinamidePoreToner.png" alt="Toner">
+                      <span>Niacinamide Toner</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Retinol Night Serum">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/RetinolNighSerum.png" alt="Serum">
+                      <span>Retinol Night Serum</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Rich Night Cream">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/RichNightCream.png" alt="Night Cream">
+                      <span>Rich Night Cream</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Hydrating Sheet Mask">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/HyfratingSheetMaskSet.png" alt="Mask">
+                      <span>Hydrating Sheet Mask</span>
+                    </span>
+                  </label>
+                  <label class="product-checkbox">
+                    <input type="checkbox" name="products" value="Clay Detox Mask">
+                    <span class="checkbox-label">
+                      <img src="img/Skincare/ClayDetoxMask.png" alt="Mask">
+                      <span>Clay Detox Mask</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Notes</label>
+                <textarea id="evening-notes" name="notes" rows="3" placeholder="How does your skin feel this evening?"></textarea>
+              </div>
+
+              <button type="submit" class="advisor-btn primary full-width">
+                <i class="fa-solid fa-check"></i> Save Evening Log
+              </button>
+            </form>
+          </div>
+        </div><!-- end analysis-options -->
+      </div>
+    </div>
+
+    <!-- ===== SYMPTOMS TAB ===== -->
+    <div class="tracker-tab-content" id="symptoms-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-heart-pulse"></i> Symptoms</div>
+          <h2>Skin Symptoms</h2>
+          <p>How is your skin feeling today?</p>
+        </div>
+
+        <form id="symptoms-form" class="tracker-form">
+
+          <div class="input-group">
+            <label>Date</label>
+            <input type="date" id="symptoms-date" name="date" required class="tracker-input">
+          </div>
+
+          <div class="input-group">
+            <label>Symptoms Experienced (Select All That Apply)</label>
+            <div class="checkbox-group tracker-concerns-grid">
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="dryness"> <i class="fa-solid fa-droplet-slash"></i> Dryness
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="oiliness"> <i class="fa-solid fa-droplet"></i> Oiliness
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="redness"> <i class="fa-solid fa-fire"></i> Redness
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="breakouts"> <i class="fa-solid fa-circle-exclamation"></i> Breakouts
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="sensitivity"> <i class="fa-solid fa-triangle-exclamation"></i> Sensitivity
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="itching"> <i class="fa-solid fa-hand-sparkles"></i> Itching
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="dark-circles"> <i class="fa-solid fa-eye-slash"></i> Dark Circles
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="puffiness"> <i class="fa-solid fa-bell"></i> Puffiness
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="fine-lines"> <i class="fa-solid fa-minus"></i> Fine Lines
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="symptoms" value="none"> <i class="fa-solid fa-check"></i> No Symptoms
+              </label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Severity Level</label>
+            <div class="tracker-severity">
+              <input type="range" id="severity" name="severity" min="1" max="5" value="1">
+              <div class="severity-labels">
+                <span>Mild</span>
+                <span>Moderate</span>
+                <span>Severe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Additional Notes</label>
+            <textarea id="symptoms-notes" name="notes" rows="3" placeholder="Describe your skin condition today..."></textarea>
+          </div>
+
+          <button type="submit" class="advisor-btn primary full-width">
+            <i class="fa-solid fa-check"></i> Save Symptoms
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== HISTORY TAB ===== -->
+    <div class="tracker-tab-content" id="history-tab">
+      <div class="advisor-card tracker-card">
+        <div class="step-header">
+          <div class="step-badge"><i class="fa-solid fa-clock-rotate-left"></i> History</div>
+          <h2>Skincare History</h2>
+          <p>Your skincare journey so far</p>
+        </div>
+        <div class="history-filters">
+          <select id="history-filter" class="tracker-input">
+            <option value="all">All Entries</option>
+            <option value="morning">Morning Routines</option>
+            <option value="evening">Evening Routines</option>
+            <option value="symptoms">Symptoms</option>
+          </select>
+          <button class="advisor-btn outline" id="clear-history">
+            <i class="fa-solid fa-trash"></i> Clear All History
+          </button>
+        </div>
+        <div id="history-entries" class="history-entries">
+          <div class="empty-state">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <p>No entries yet. Start tracking your skincare routine!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-message" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span>Entry saved successfully!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="shop-skincare.html">Skincare</a>
+        <a href="shop-makeup.html">Makeup</a>
+        <a href="shop-hair.html">Hair</a>
+        <a href="shop-tools.html">Tools &amp; Brushes</a>
+        <a href="shop-nails.html">Nails</a>
+      </div>
+      <div class="footer-section">
+        <h4>Trackers</h4>
+        <a href="tracker-skincare.html">Skincare Tracker</a>
+        <a href="tracker-haircare.html">Haircare Tracker</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bare Beauty. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Option button toggle
+    document.querySelectorAll('.option-buttons').forEach(function(group) {
+      group.querySelectorAll('.option-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          group.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          var hidden = group.parentElement.querySelector('input[type="hidden"]');
+          if (hidden) hidden.value = btn.getAttribute('data-value');
+        });
+      });
+    });
+
+    // Tracker camera helper
+    function initTrackerCamera(startBtn, captureBtn, retakeBtn, videoEl, canvasEl, placeholderEl) {
+      var stream = null;
+      startBtn.addEventListener('click', function() {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } }).then(function(s) {
+          stream = s;
+          videoEl.srcObject = s;
+          placeholderEl.style.display = 'none';
+          startBtn.style.display = 'none';
+          captureBtn.style.display = 'inline-flex';
+        }).catch(function() {
+          alert('Camera access denied or unavailable.');
+        });
+      });
+      captureBtn.addEventListener('click', function() {
+        canvasEl.width = videoEl.videoWidth;
+        canvasEl.height = videoEl.videoHeight;
+        canvasEl.getContext('2d').drawImage(videoEl, 0, 0);
+        canvasEl.style.display = 'block';
+        videoEl.style.display = 'none';
+        if (stream) stream.getTracks().forEach(function(t) { t.stop(); });
+        captureBtn.style.display = 'none';
+        retakeBtn.style.display = 'inline-flex';
+      });
+      retakeBtn.addEventListener('click', function() {
+        canvasEl.style.display = 'none';
+        videoEl.style.display = 'block';
+        retakeBtn.style.display = 'none';
+        startBtn.style.display = 'inline-flex';
+        placeholderEl.style.display = 'flex';
+      });
+    }
+
+    initTrackerCamera(
+      document.getElementById('scMorningStartBtn'),
+      document.getElementById('scMorningCaptureBtn'),
+      document.getElementById('scMorningRetakeBtn'),
+      document.getElementById('scMorningFeed'),
+      document.getElementById('scMorningCanvas'),
+      document.getElementById('scMorningPlaceholder')
+    );
+
+    initTrackerCamera(
+      document.getElementById('scEveningStartBtn'),
+      document.getElementById('scEveningCaptureBtn'),
+      document.getElementById('scEveningRetakeBtn'),
+      document.getElementById('scEveningFeed'),
+      document.getElementById('scEveningCanvas'),
+      document.getElementById('scEveningPlaceholder')
+    );
+  </script>
+</body>
+</html>
