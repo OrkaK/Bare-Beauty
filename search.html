@@ -254,46 +254,50 @@
         const qLower = query.toLowerCase();
 
         Object.values(products).forEach(product => {
-            const nameMatch = product.name.toLowerCase().includes(qLower);
-            const catMatch = product.category.toLowerCase().includes(qLower);
-            const skinMatch = product.skinType ? product.skinType.toLowerCase().includes(qLower) : false;
+            const pName = product.name ? product.name.toLowerCase() : '';
+            const pCat = product.category ? product.category.toLowerCase() : '';
+            const pSkin = product.skinType ? product.skinType.toLowerCase() : '';
+
+            const nameMatch = pName.includes(qLower);
+            const catMatch = pCat.includes(qLower);
+            const skinMatch = pSkin.includes(qLower);
 
             if (nameMatch || catMatch || skinMatch || query === '') {
                 matchCount++;
-                const isFeatured = product.name.toLowerCase().includes('serum') || product.name.toLowerCase().includes('cream'); 
+                const isFeatured = pName.includes('serum') || pName.includes('cream'); 
                 const isSale = product.originalPrice ? true : false;
-
+                
                 let badgeHTML = '';
                 if (isFeatured) badgeHTML = `<span class="badge badge-featured">Featured</span>`;
                 if (isSale) badgeHTML = `<span class="badge badge-sale">Sale</span>`;
                 
+                const safeCat = product.category ? product.category : 'General';
+                const safeName = product.name ? product.name : 'Unknown Product';
+                const safePrice = product.price ? parseFloat(product.price).toFixed(2) : '0.00';
+                
                 const cardHTML = `
-                <div class="product-card-shop" data-category="${product.category.toLowerCase().replace(' ', '-')}" data-price="${product.price}" data-skin-type="${product.skinType ? product.skinType.toLowerCase() : 'all'}">
+                <div class="product-card-shop" data-category="${safeCat.toLowerCase().replace(/ /g, '-')}" data-price="${product.price || 0}" data-skin-type="${product.skinType ? product.skinType.toLowerCase() : 'all'}">
                   <a href="product-detail.html?id=${product.id}">
                     <div class="product-image">
-                      <img src="${product.image || 'img/placeholder.jpg'}" alt="${product.name}" onerror="this.src='img/placeholder.jpg'">
+                      <img src="${product.image || 'img/placeholder.jpg'}" alt="${safeName}" onerror="this.src='img/placeholder.jpg'">
                       ${badgeHTML}
                       <button class="quick-view-btn">Quick View</button>
                     </div>
                   </a>
                   <div class="product-info">
-                    <span class="product-category">${product.category}</span>
-                    <h4 class="product-name">${product.name}</h4>
+                    <span class="product-category">${safeCat}</span>
+                    <h4 class="product-name">${safeName}</h4>
                     <div class="product-rating">
                       <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                       </div>
-                      <span class="rating-count">(${product.reviews})</span>
+                      <span class="rating-count">(${product.reviews || 0})</span>
                     </div>
                     <div class="product-price">
-                      ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
-                      <span class="current-price ${product.originalPrice ? 'sale' : ''}">$${parseFloat(product.price).toFixed(2)}</span>
+                      ${product.originalPrice ? `<span class="original-price">$${parseFloat(product.originalPrice).toFixed(2)}</span>` : ''}
+                      <span class="current-price ${product.originalPrice ? 'sale' : ''}">$${safePrice}</span>
                     </div>
-                    <button class="add-to-cart-btn" onclick="cartApp.addItem('${product.id}', '${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image || 'img/placeholder.jpg'}')">Add to Cart</button>
+                    <button class="add-to-cart-btn" onclick="cartApp.addItem('${product.id}', '${safeName.replace(/'/g, "\\'")}', ${product.price || 0}, '${product.image || 'img/placeholder.jpg'}')">Add to Cart</button>
                   </div>
                 </div>
                 `;
