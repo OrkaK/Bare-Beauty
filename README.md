@@ -1,4 +1,4 @@
-# Bare Beauty Frontend 🌿✨
+# Bare Beauty
 A gorgeous, modern eCommerce experience featuring AI Skin Advising, Shopping Cart integration, and dynamic catalog structures built on HTML/CSS/Vanilla JS.
 
 ## 🚀 How to Run the Project Locally
